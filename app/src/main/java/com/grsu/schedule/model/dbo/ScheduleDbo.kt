@@ -9,5 +9,5 @@ data class ScheduleDbo(
     val localId: String = UUID.randomUUID().toString(),
 
     @ColumnInfo(name = "days")
-    var days: DayDbo? = null
+    var days: List<DayDbo>? = null
 )

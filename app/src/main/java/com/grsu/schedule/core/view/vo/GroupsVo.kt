@@ -1,6 +1,6 @@
 package com.grsu.schedule.core.view.vo
 
-data class ScheduleVo(
+data class GroupsVo(
     val localId: String,
-    var days: List<DayVo>? = null
+    var items: List<GroupVo>? = null
 )

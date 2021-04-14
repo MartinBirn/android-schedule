@@ -7,5 +7,5 @@ data class ScheduleDto(
     var count: Int? = null,
 
     @Json(name = "days")
-    var days: DayDto? = null
+    var days: List<DayDto>? = null
 )

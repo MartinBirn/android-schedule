@@ -2,8 +2,6 @@ package com.grsu.schedule.model.dbo
 
 import androidx.room.ColumnInfo
 import androidx.room.PrimaryKey
-import com.grsu.schedule.model.dto.SubGroupDto
-import com.grsu.schedule.model.dto.TeacherDto
 import java.util.*
 
 data class LessonDbo(
