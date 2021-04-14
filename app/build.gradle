@@ -11,6 +11,7 @@ ext {
     constraint_version = '2.0.4'
     koin_version = '3.0.1-beta-2'
     cicerone_version = '6.6'
+    view_binding_delegate_property_version = '1.4.4'
     moshi_version = '1.12.0'
     room_version = "2.2.6"
     junit_version = '4.13.2'
@@ -63,6 +64,8 @@ dependencies {
     implementation "io.insert-koin:koin-androidx-compose:$koin_version"
 
     implementation "com.github.terrakok:cicerone:$cicerone_version"
+
+    implementation "com.github.kirich1409:viewbindingpropertydelegate:$view_binding_delegate_property_version"
 
     implementation "com.squareup.moshi:moshi:$moshi_version"
 
