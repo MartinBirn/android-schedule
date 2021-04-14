@@ -1,0 +1,17 @@
+package com.grsu.schedule.model.dbo
+
+import androidx.room.ColumnInfo
+import androidx.room.PrimaryKey
+import com.grsu.schedule.model.dto.TeacherDto
+import java.util.*
+
+data class TeachersDbo(
+    @PrimaryKey
+    val localId: String = UUID.randomUUID().toString(),
+
+    @ColumnInfo(name = "count")
+    var count: Int? = null,
+
+    @ColumnInfo(name = "items")
+    var items: List<TeacherDbo>? = null
+)
