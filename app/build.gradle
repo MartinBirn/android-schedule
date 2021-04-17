@@ -24,7 +24,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "com.grsu.schedule"
+        applicationId "com.grsu.schedule_project"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
