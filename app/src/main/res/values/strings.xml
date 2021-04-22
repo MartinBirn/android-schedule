@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Schedule</string>
+
+    <string name="menu_schedule_title">Schedule</string>
+    <string name="menu_settings_title">Settings</string>
+
+    <string name="toolbar_schedule_title">Schedule</string>
+    <string name="toolbar_settings_title">Settings</string>
 </resources>

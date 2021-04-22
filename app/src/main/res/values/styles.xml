@@ -8,6 +8,12 @@
         <item name="android:windowBackground">@color/white</item>
     </style>
 
+    <style name="BottomNavViewStyle">
+        <item name="android:background">@color/bottom_nav_background_color</item>
+        <item name="itemIconTint">@color/bottom_nav_item_color_selector</item>
+        <item name="itemTextColor">@color/bottom_nav_item_color_selector</item>
+    </style>
+
     <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/schedule_splash_screen</item>
         <item name="android:windowTranslucentNavigation">false</item>
