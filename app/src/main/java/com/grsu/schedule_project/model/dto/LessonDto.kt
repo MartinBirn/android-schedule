@@ -12,7 +12,7 @@ data class LessonDto(
     var timeEnd: String? = null,
 
     @Json(name = "teacher")
-    var teacher: TeacherDto? = null,
+    var teacher: LessonTeacherDto? = null,
 
     @Json(name = "label")
     var label: String? = null,

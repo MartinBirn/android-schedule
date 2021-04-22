@@ -2,9 +2,10 @@ package com.grsu.schedule_project.core.view.vo
 
 data class LessonVo(
     val localId: String,
+    var dayId: String? = null,
     var timeStart: String? = null,
     var timeEnd: String? = null,
-    var teacher: TeacherVo? = null,
+    var teacher: LessonTeacherVo? = null,
     var label: String? = null,
     var type: String? = null,
     var title: String? = null,

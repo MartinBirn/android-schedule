@@ -1,37 +1,32 @@
 package com.grsu.schedule_project.model.dbo
 
-import androidx.room.ColumnInfo
-import androidx.room.PrimaryKey
+import androidx.room.*
 import java.util.*
 
+@Entity(
+    tableName = "lesson",
+    foreignKeys = [ForeignKey(
+        entity = DayDbo::class,
+        parentColumns = ["localId"],
+        childColumns = ["dayId"],
+        onDelete = ForeignKey.CASCADE
+    )]
+)
+@SuppressWarnings(RoomWarnings.PRIMARY_KEY_FROM_EMBEDDED_IS_DROPPED)
 data class LessonDbo(
     @PrimaryKey
-    val localId: String = UUID.randomUUID().toString(),
-
-    @ColumnInfo(name = "timeStart")
+    var localId: String = UUID.randomUUID().toString(),
+    @ColumnInfo(index = true)
+    var dayId: String? = null,
     var timeStart: String? = null,
-
-    @ColumnInfo(name = "timeEnd")
     var timeEnd: String? = null,
-
-    @ColumnInfo(name = "teacher")
-    var teacher: TeacherDbo? = null,
-
-    @ColumnInfo(name = "label")
+    @Embedded(prefix = "lessonTeacher")
+    var teacher: LessonTeacherDbo? = null,
     var label: String? = null,
-
-    @ColumnInfo(name = "type")
     var type: String? = null,
-
-    @ColumnInfo(name = "title")
     var title: String? = null,
-
-    @ColumnInfo(name = "address")
     var address: String? = null,
-
-    @ColumnInfo(name = "room")
     var room: String? = null,
-
-    @ColumnInfo(name = "subgroup")
+    @Embedded(prefix = "subgroup")
     var subGroup: SubGroupDbo? = null
 )

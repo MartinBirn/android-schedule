@@ -6,11 +6,13 @@ import com.grsu.schedule_project.model.dto.DayDto
 
 fun DayDto.toDayDbo() = DayDbo(
     num = this.num,
-    date = this.date,
-    lessons = this.lessons?.map { lessonDto ->
-        lessonDto.toLessonDbo()
+    date = this.date
+).apply {
+    val id = localId
+    lessons = this@toDayDbo.lessons?.map { lessonDto ->
+        lessonDto.toLessonDbo().apply { dayId = id }
     }
-)
+}
 
 fun DayDbo.toDayVo() = DayVo(
     localId = this.localId,
