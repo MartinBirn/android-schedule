@@ -1,16 +1,16 @@
-package com.grsu.schedule_project.schedule.di
+package com.grsu.schedule_project.home.schedule.di
 
 import com.grsu.schedule_project.core.preferences.di.PRIVATE_STORAGE
-import com.grsu.schedule_project.model.repositories.DepartmentRepository
+import com.grsu.schedule_project.model.repositories.FacultyRepository
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val departmentRepositoryModule = module {
+val facultyRepositoryModule = module {
     single {
-        DepartmentRepository(
+        FacultyRepository(
             preferences = get(named(PRIVATE_STORAGE)),
             scheduleService = get(),
-            departmentDao = get()
+            facultyDao = get()
         )
     }
 }
