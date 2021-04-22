@@ -5,7 +5,7 @@ import com.grsu.schedule_project.model.repositories.ScheduleRepository
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 
-val dayRepositoryModule = module {
+val scheduleRepositoryModule = module {
     single {
         ScheduleRepository(
             preferences = get(named(PRIVATE_STORAGE)),

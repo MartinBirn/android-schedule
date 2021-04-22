@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/schedulePage"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_subject_24"
+        android:title="@string/menu_schedule_title" />
+    <item
+        android:id="@+id/settingsPage"
+        android:enabled="true"
+        android:icon="@drawable/ic_outline_settings_24"
+        android:title="@string/menu_settings_title" />
+</menu>
