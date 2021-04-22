@@ -1,16 +1,13 @@
 package com.grsu.schedule_project.model.dbo
 
-import androidx.room.ColumnInfo
+import androidx.room.Entity
 import androidx.room.PrimaryKey
 import java.util.*
 
+@Entity(tableName = "department")
 data class DepartmentDbo(
     @PrimaryKey
-    val localId: String = UUID.randomUUID().toString(),
-
-    @ColumnInfo(name = "id")
+    var localId: String = UUID.randomUUID().toString(),
     var id: String? = null,
-
-    @ColumnInfo(name = "title")
     var title: String? = null
 )

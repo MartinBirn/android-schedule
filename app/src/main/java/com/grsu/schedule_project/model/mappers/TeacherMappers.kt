@@ -10,10 +10,7 @@ fun TeacherDto.toTeacherDbo() = TeacherDbo(
     surname = this.surname,
     patronym = this.patronym,
     post = this.post,
-    phone = this.phone,
-    descr = this.descr,
-    email = this.email,
-    skype = this.skype
+    email = this.email
 )
 
 fun TeacherDbo.toTeacherVo() = TeacherVo(
@@ -23,8 +20,5 @@ fun TeacherDbo.toTeacherVo() = TeacherVo(
     surname = this.surname,
     patronym = this.patronym,
     post = this.post,
-    phone = this.phone,
-    descr = this.descr,
-    email = this.email,
-    skype = this.skype
+    email = this.email
 )

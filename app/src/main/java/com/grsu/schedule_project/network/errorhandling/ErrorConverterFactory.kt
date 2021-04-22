@@ -28,11 +28,10 @@ class ErrorConverterFactory : Converter.Factory() {
             val moshi = Moshi.Builder().build()
             val response = value.string()
             try {
-                val jsonAdapter = moshi.adapter<T>(successClazz).failOnUnknown()
-                val successObject = jsonAdapter.fromJson(response)
-                return successObject
+                val jsonAdapter = moshi.adapter(successClazz).failOnUnknown()
+                return jsonAdapter.fromJson(response)
             } catch (e: JsonDataException) {
-                val jsonAdapter = moshi.adapter<ErrorWrapperDto>(ErrorWrapperDto::class.java)
+                val jsonAdapter = moshi.adapter(ErrorWrapperDto::class.java)
                 val errorObject = jsonAdapter.fromJson(response)
                 throw ApiException(errorObject?.error)
             }

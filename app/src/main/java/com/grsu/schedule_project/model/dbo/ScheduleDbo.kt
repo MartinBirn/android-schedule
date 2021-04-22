@@ -1,13 +1,14 @@
 package com.grsu.schedule_project.model.dbo
 
-import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import java.util.*
 
+@Entity(tableName = "schedule")
 data class ScheduleDbo(
     @PrimaryKey
-    val localId: String = UUID.randomUUID().toString(),
-
-    @ColumnInfo(name = "days")
+    var localId: String = UUID.randomUUID().toString(),
+    @Ignore
     var days: List<DayDbo>? = null
 )
