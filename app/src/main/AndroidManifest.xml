@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".splashscreen.SplashScreenActivity"
+            android:name=".presentation.screen.splashscreen.SplashScreenActivity"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.grsu.schedule_project.home.HomeActivity" />
+        <activity android:name=".presentation.screen.home.HomeActivity" />
     </application>
 
 </manifest>

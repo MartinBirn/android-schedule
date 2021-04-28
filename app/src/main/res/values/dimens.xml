@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="spacing_0.25x">4dp</dimen>
+    <dimen name="spacing_0.5x">4dp</dimen>
+    <dimen name="spacing_1x">8dp</dimen>
+    <dimen name="spacing_1.5x">12dp</dimen>
+    <dimen name="spacing_2x">16dp</dimen>
+    <dimen name="spacing_2.5x">20dp</dimen>
+    <dimen name="spacing_3x">24dp</dimen>
+    <dimen name="spacing_5x">40dp</dimen>
+
+    <dimen name="single_line_item_height">48dp</dimen>
+
+    <dimen name="header_big_text_size">34sp</dimen>
+    <dimen name="header_normal_text_size">24sp</dimen>
+    <dimen name="header_small_text_size">20sp</dimen>
+
+    <dimen name="large_text_size">16sp</dimen>
+    <dimen name="normal_text_size">14sp</dimen>
+    <dimen name="small_text_size">12sp</dimen>
+</resources>

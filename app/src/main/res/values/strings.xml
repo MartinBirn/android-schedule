@@ -1,9 +1,17 @@
 <resources>
     <string name="app_name">Schedule</string>
 
+    <string name="error_null_body">Body is null</string>
+
     <string name="menu_schedule_title">Schedule</string>
+    <string name="menu_bookmarks_title">Bookmarks</string>
     <string name="menu_settings_title">Settings</string>
 
+    <string name="toolbar_departments_title">Mode of study</string>
+    <string name="toolbar_faculties_title">Faculty</string>
+    <string name="toolbar_courses_title">Course</string>
+    <string name="toolbar_groups_title">Group</string>
     <string name="toolbar_schedule_title">Schedule</string>
+    <string name="toolbar_bookmarks_title">Bookmarks</string>
     <string name="toolbar_settings_title">Settings</string>
 </resources>
