@@ -3,11 +3,10 @@ package com.grsu.schedule_project.data.source.schedule
 import android.content.SharedPreferences
 import com.grsu.schedule_project.common.APP_LANGUAGE_KEY
 import com.grsu.schedule_project.common.preferences.util.string
-import com.grsu.schedule_project.data.model.dto.DayDto
+import com.grsu.schedule_project.data.model.dbo.DayDbo
 import com.grsu.schedule_project.data.model.errorhandling.RepoResult
 import com.grsu.schedule_project.data.model.errorhandling.RepoResult.Failure.DatabaseFailure
 import com.grsu.schedule_project.data.model.errorhandling.RepoResult.Success
-import com.grsu.schedule_project.data.model.mappers.toDayDbo
 import com.grsu.schedule_project.data.source.schedule.local.ScheduleLocalDataSource
 import com.grsu.schedule_project.data.source.schedule.remote.ScheduleRemoteDataSource
 
@@ -23,21 +22,20 @@ class ScheduleRepository(
         groupId: String,
         dateStart: String? = null,
         dateEnd: String? = null
-    ): RepoResult<*, *> {
+    ): RepoResult<List<DayDbo>, *> {
         val dayDboList = localDataSource.getGroupSchedule(groupId = groupId)
         if (dayDboList is Success && dayDboList.response.isEmpty()) {
-            val tempDayDtoList: List<DayDto>
+            val tempDayDboList: List<DayDbo>
             when (val apiResult = remoteDataSource.getGroupSchedule(
-                groupId = groupId,
-                dateStart = dateStart,
-                dateEnd = dateEnd,
+                groupId,
+                dateStart,
+                dateEnd,
                 language = appLanguage
             )) {
-                is Success -> tempDayDtoList = apiResult.response
+                is Success -> tempDayDboList = apiResult.response
                 else -> return apiResult
             }
             try {
-                val tempDayDboList = tempDayDtoList.map { it.toDayDbo() }
                 val tempLessonsDboList = tempDayDboList.mapNotNull { it.lessons }.flatten()
                 localDataSource.insertAndDeletePrevious(*tempDayDboList.toTypedArray())
                 localDataSource.insertAndDeletePrevious(*tempLessonsDboList.toTypedArray())

@@ -1,22 +1,18 @@
 package com.grsu.schedule_project.presentation.screen.home
 
 import androidx.lifecycle.ViewModel
-import com.github.terrakok.cicerone.Router
 import com.github.terrakok.cicerone.androidx.FragmentScreen
+import com.grsu.schedule_project.common.navigation.ScheduleRouter
 
 class HomeViewModel(
-    private val router: Router
+    private val router: ScheduleRouter
 ) : ViewModel() {
 
-    init {
-        router.replaceScreen(HomeScreens.scheduleContainerScreen())
-    }
-
     fun onBackPressed() {
-        router.exit()
+        router.backInActivity()
     }
 
-    fun selectTab(screen: FragmentScreen) {
-        router.replaceScreen(screen)
+    fun switchTab(screen: FragmentScreen, title: String) {
+        router.switchTab(screen, title)
     }
 }

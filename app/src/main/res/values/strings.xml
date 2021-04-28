@@ -3,6 +3,8 @@
 
     <string name="error_null_body">Body is null</string>
 
+    <string name="action_retry">Retry</string>
+
     <string name="menu_schedule_title">Schedule</string>
     <string name="menu_bookmarks_title">Bookmarks</string>
     <string name="menu_settings_title">Settings</string>
