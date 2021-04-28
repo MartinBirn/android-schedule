@@ -19,7 +19,8 @@ object HomeScreens {
 
     fun departmentScreen() = FragmentScreen { DepartmentsFragment.getNewInstance() }
 
-    fun facultyScreen() = FragmentScreen { FacultiesFragment.getNewInstance() }
+    fun facultyScreen(departmentId: String?) =
+        FragmentScreen { FacultiesFragment.getNewInstance(departmentId) }
 
     fun courseScreen() = FragmentScreen { CoursesFragment.getNewInstance() }
 
