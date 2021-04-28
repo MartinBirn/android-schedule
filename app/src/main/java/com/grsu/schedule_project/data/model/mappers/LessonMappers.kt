@@ -1,8 +1,8 @@
 package com.grsu.schedule_project.data.model.mappers
 
-import com.grsu.schedule_project.data.model.vo.LessonVo
 import com.grsu.schedule_project.data.model.dbo.LessonDbo
 import com.grsu.schedule_project.data.model.dto.LessonDto
+import com.grsu.schedule_project.data.model.vo.LessonVo
 
 fun LessonDto.toLessonDbo() = LessonDbo(
     timeStart = this.timeStart,

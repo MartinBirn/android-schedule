@@ -1,8 +1,8 @@
 package com.grsu.schedule_project.data.model.mappers
 
-import com.grsu.schedule_project.data.model.vo.DepartmentsVo
 import com.grsu.schedule_project.data.model.dbo.DepartmentsDbo
 import com.grsu.schedule_project.data.model.dto.DepartmentsDto
+import com.grsu.schedule_project.data.model.vo.DepartmentsVo
 
 fun DepartmentsDto.toDepartmentsDbo() = DepartmentsDbo(
     items = this.items?.map { departmentDto ->

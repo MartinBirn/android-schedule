@@ -1,8 +1,8 @@
 package com.grsu.schedule_project.data.model.mappers
 
-import com.grsu.schedule_project.data.model.vo.LessonTeacherVo
 import com.grsu.schedule_project.data.model.dbo.LessonTeacherDbo
 import com.grsu.schedule_project.data.model.dto.LessonTeacherDto
+import com.grsu.schedule_project.data.model.vo.LessonTeacherVo
 
 fun LessonTeacherDto.toLessonTeacherDbo() = LessonTeacherDbo(
     id = this.id,

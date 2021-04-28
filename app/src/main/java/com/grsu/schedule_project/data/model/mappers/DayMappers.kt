@@ -1,8 +1,8 @@
 package com.grsu.schedule_project.data.model.mappers
 
-import com.grsu.schedule_project.data.model.vo.DayVo
 import com.grsu.schedule_project.data.model.dbo.DayDbo
 import com.grsu.schedule_project.data.model.dto.DayDto
+import com.grsu.schedule_project.data.model.vo.DayVo
 
 fun DayDto.toDayDbo() = DayDbo(
     num = this.num,
