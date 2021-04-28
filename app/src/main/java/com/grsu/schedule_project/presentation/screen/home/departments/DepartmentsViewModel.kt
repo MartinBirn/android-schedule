@@ -15,8 +15,8 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
 
 class DepartmentsViewModel(
-    private val departmentRepository: DepartmentRepository,
-    private val router: ScheduleRouter
+    private val router: ScheduleRouter,
+    private val departmentRepository: DepartmentRepository
 ) : ViewModel() {
 
     private var departmentJob: Job? = null
@@ -51,7 +51,7 @@ class DepartmentsViewModel(
                             it.toDepartmentVo(),
                             onDepartmentItemClickListener = object : OnClickListener {
                                 override fun onClick() {
-                                    router.navigateTo(HomeScreens.facultyScreen(it.id))
+                                    router.navigateTo(HomeScreens.facultyScreen(departmentId = it.id))
                                 }
                             })
                     }

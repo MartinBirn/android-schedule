@@ -51,8 +51,8 @@ class DepartmentsFragment : Fragment(R.layout.fragment_departments), BackButtonL
                     .show()
             }
         }
-        departmentsViewModel.departmentItemViewModelList.observe(viewLifecycleOwner) { departmentVoList ->
-            departmentAdapter.submitList(departmentVoList)
+        departmentsViewModel.departmentItemViewModelList.observe(viewLifecycleOwner) { departmentItemViewModelList ->
+            departmentAdapter.submitList(departmentItemViewModelList)
         }
     }
 
