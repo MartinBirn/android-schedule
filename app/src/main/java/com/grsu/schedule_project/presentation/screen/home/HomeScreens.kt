@@ -1,0 +1,33 @@
+package com.grsu.schedule_project.presentation.screen.home
+
+import com.github.terrakok.cicerone.androidx.ActivityScreen
+import com.github.terrakok.cicerone.androidx.FragmentScreen
+import com.grsu.schedule_project.presentation.screen.home.bookmarks.BookmarksFragment
+import com.grsu.schedule_project.presentation.screen.home.courses.CoursesFragment
+import com.grsu.schedule_project.presentation.screen.home.departments.DepartmentsFragment
+import com.grsu.schedule_project.presentation.screen.home.faculties.FacultiesFragment
+import com.grsu.schedule_project.presentation.screen.home.groups.GroupsFragment
+import com.grsu.schedule_project.presentation.screen.home.schedule.ScheduleFragment
+import com.grsu.schedule_project.presentation.screen.home.schedulecontainer.ScheduleContainerFragment
+import com.grsu.schedule_project.presentation.screen.home.settings.SettingsFragment
+
+object HomeScreens {
+
+    fun homeScreen() = ActivityScreen { HomeActivity.getIntent(it) }
+
+    fun scheduleContainerScreen() = FragmentScreen { ScheduleContainerFragment.getNewInstance() }
+
+    fun departmentScreen() = FragmentScreen { DepartmentsFragment.getNewInstance() }
+
+    fun facultyScreen() = FragmentScreen { FacultiesFragment.getNewInstance() }
+
+    fun courseScreen() = FragmentScreen { CoursesFragment.getNewInstance() }
+
+    fun groupScreen() = FragmentScreen { GroupsFragment.getNewInstance() }
+
+    fun scheduleScreen() = FragmentScreen { ScheduleFragment.getNewInstance() }
+
+    fun bookmarksScreen() = FragmentScreen { BookmarksFragment.getNewInstance() }
+
+    fun settingsScreen() = FragmentScreen { SettingsFragment.getNewInstance() }
+}

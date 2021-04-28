@@ -6,6 +6,11 @@
         android:icon="@drawable/ic_baseline_subject_24"
         android:title="@string/menu_schedule_title" />
     <item
+        android:id="@+id/bookmarksPage"
+        android:enabled="true"
+        android:icon="@drawable/ic_baseline_bookmark_24"
+        android:title="@string/menu_bookmarks_title" />
+    <item
         android:id="@+id/settingsPage"
         android:enabled="true"
         android:icon="@drawable/ic_outline_settings_24"

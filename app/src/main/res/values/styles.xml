@@ -14,6 +14,21 @@
         <item name="itemTextColor">@color/bottom_nav_item_color_selector</item>
     </style>
 
+    <style name="AppToolbarStyle">
+        <item name="android:background">@color/toolbar_background_color</item>
+        <item name="android:theme">@style/AppToolbarTheme</item>
+        <item name="titleTextColor">@color/toolbar_text_color</item>
+    </style>
+
+    <style name="AppToolbarTheme">
+        <item name="colorControlNormal">@color/toolbar_control_normal_color</item>
+    </style>
+
+    <style name="ListItemStyle">
+        <item name="android:textSize">@dimen/large_text_size</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
     <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@drawable/schedule_splash_screen</item>
         <item name="android:windowTranslucentNavigation">false</item>
