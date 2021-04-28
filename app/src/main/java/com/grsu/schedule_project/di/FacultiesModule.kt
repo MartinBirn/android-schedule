@@ -10,7 +10,7 @@ val facultyModule = module {
         FacultiesViewModel(
             router = get(named(SCHEDULE_CONTAINER)),
             facultyRepository = get(),
-            departmentId = departmentId
+            departmentId
         )
     }
 }
