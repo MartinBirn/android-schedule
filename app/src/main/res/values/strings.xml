@@ -16,4 +16,11 @@
     <string name="toolbar_schedule_title">Schedule</string>
     <string name="toolbar_bookmarks_title">Bookmarks</string>
     <string name="toolbar_settings_title">Settings</string>
+
+    <string name="course_first_title">1 year</string>
+    <string name="course_second_title">2 year</string>
+    <string name="course_third_title">3 year</string>
+    <string name="course_fourth_title">4 year</string>
+    <string name="course_fifth_title">5 year</string>
+    <string name="course_sixth_title">6 year</string>
 </resources>
