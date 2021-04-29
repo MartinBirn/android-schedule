@@ -23,6 +23,7 @@ class ScheduleApplication : Application() {
                 departmentModule,
                 facultyModule,
                 courseModule,
+                groupModule,
                 networkModule,
                 databaseModule,
                 teacherRepositoryModule,
