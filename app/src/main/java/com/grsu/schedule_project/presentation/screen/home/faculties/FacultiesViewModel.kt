@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.grsu.schedule_project.common.navigation.ScheduleRouter
 import com.grsu.schedule_project.data.model.errorhandling.RepoResult
-import com.grsu.schedule_project.data.model.mappers.toFacultyVo
 import com.grsu.schedule_project.data.source.faculty.FacultyRepository
 import com.grsu.schedule_project.presentation.common.OnClickListener
 import com.grsu.schedule_project.presentation.common.listadapters.FacultyItemViewModel
@@ -49,8 +48,9 @@ class FacultiesViewModel(
                 is RepoResult.Success -> {
                     _facultyItemViewModelList.value = facultyResult.response.map {
                         FacultyItemViewModel(
-                            it.toFacultyVo(),
-                            onFacultyItemClickListener = object : OnClickListener {
+                            it.localId,
+                            it.title,
+                            onClickListener = object : OnClickListener {
                                 override fun onClick() {
                                     router.navigateTo(
                                         HomeScreens.courseScreen(departmentId, facultyId = it.id)

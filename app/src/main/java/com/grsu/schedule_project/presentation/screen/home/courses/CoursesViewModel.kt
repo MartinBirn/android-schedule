@@ -61,9 +61,9 @@ class CoursesViewModel(
             )
             _courseItemViewModelList.value = courseNumberList.mapIndexed { idx, value ->
                 CourseItemViewModel(
-                    courseId = value,
-                    courseTitle = courseTitleList[idx],
-                    onCourseItemClickListener = object : OnClickListener {
+                    id = value,
+                    title = courseTitleList[idx],
+                    onClickListener = object : OnClickListener {
                         override fun onClick() {
                             router.navigateTo(
                                 HomeScreens.groupScreen(departmentId, facultyId, courseId = value)
