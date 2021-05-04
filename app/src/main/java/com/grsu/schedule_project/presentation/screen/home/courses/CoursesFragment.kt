@@ -45,16 +45,15 @@ class CoursesFragment : Fragment(R.layout.fragment_courses), BackButtonListener 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).setSupportActionBar(viewBinding.toolbar)
         viewBinding.toolbar.title = utils.getStringById(R.string.toolbar_courses_title)
+        viewBinding.toolbar.setNavigationOnClickListener {
+            coursesViewModel.onBackPressed()
+        }
         viewBinding.recyclerView.adapter = courseAdapter
         viewBinding.recyclerView.addItemDecoration(
             DividerItemDecoration(context, RecyclerView.VERTICAL)
         )
-
-        (activity as AppCompatActivity).setSupportActionBar(viewBinding.toolbar)
-        viewBinding.toolbar.setNavigationOnClickListener {
-            coursesViewModel.onBackPressed()
-        }
 
         subscribeUi()
     }
@@ -63,8 +62,8 @@ class CoursesFragment : Fragment(R.layout.fragment_courses), BackButtonListener 
         coursesViewModel.spinner.observe(viewLifecycleOwner) { show ->
             viewBinding.progressBar.visibility = if (show) View.VISIBLE else View.GONE
         }
-        coursesViewModel.courseItemViewModelList.observe(viewLifecycleOwner) { facultyItemViewModelList ->
-            courseAdapter.submitList(facultyItemViewModelList)
+        coursesViewModel.courseItemViewModelList.observe(viewLifecycleOwner) { courseItemViewModelList ->
+            courseAdapter.submitList(courseItemViewModelList)
         }
     }
 

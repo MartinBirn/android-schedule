@@ -35,6 +35,7 @@ class DepartmentsFragment : Fragment(R.layout.fragment_departments), BackButtonL
         viewBinding.recyclerView.addItemDecoration(
             DividerItemDecoration(context, RecyclerView.VERTICAL)
         )
+
         subscribeUi()
     }
 

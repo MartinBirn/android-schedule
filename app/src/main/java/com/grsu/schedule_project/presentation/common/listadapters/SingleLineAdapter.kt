@@ -37,9 +37,7 @@ abstract class AbstractItemViewModel(
     open val onClickListener: OnClickListener? = null
 ) {
 
-    override fun equals(other: Any?): Boolean {
-        return super.equals(other)
-    }
+    override fun equals(other: Any?): Boolean = super.equals(other)
 
     override fun hashCode(): Int {
         var result = id.hashCode()

@@ -7,6 +7,8 @@
     <string name="action_back">Back</string>
 
     <string name="snack_bar_groups_not_found">No groups were found</string>
+    <string name="snack_bar_schedule_not_found">No schedule found</string>
+    <string name="snack_bar_undefined_error">Undefined cause of error</string>
 
     <string name="menu_schedule_title">Schedule</string>
     <string name="menu_bookmarks_title">Bookmarks</string>
@@ -20,10 +22,26 @@
     <string name="toolbar_bookmarks_title">Bookmarks</string>
     <string name="toolbar_settings_title">Settings</string>
 
+    <string name="toolbar_bookmark_action">Add to bookmarks</string>
+    <string name="toolbar_date_range_action">Pick a date range</string>
+    <string name="toolbar_refresh_action">Refresh</string>
+
     <string name="course_first_title">1 year</string>
     <string name="course_second_title">2 year</string>
     <string name="course_third_title">3 year</string>
     <string name="course_fourth_title">4 year</string>
     <string name="course_fifth_title">5 year</string>
     <string name="course_sixth_title">6 year</string>
+
+    <string name="select_dates">Select dates</string>
+
+    <string-array name="title_day_of_week">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
 </resources>

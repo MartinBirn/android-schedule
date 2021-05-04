@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/single_line_item_height"
+    android:clickable="true"
+    android:focusable="true"
+    android:background="@color/day_date_background_color">
+
+    <TextView
+        android:id="@+id/titleSingleLine"
+        style="@style/DayDateStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="@dimen/spacing_2x"
+        android:ellipsize="end"
+        android:maxLines="1"
+        tools:text="Single line title" />
+
+</LinearLayout>

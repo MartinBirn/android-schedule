@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/addToBookmarksAppBarItem"
+        android:icon="@drawable/ic_baseline_bookmark_border_24"
+        android:title="@string/toolbar_bookmark_action"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/dateRangePickerAppBarItem"
+        android:icon="@drawable/ic_baseline_date_range_24"
+        android:title="@string/toolbar_date_range_action"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/refreshAppBarItem"
+        android:icon="@drawable/ic_baseline_refresh_24"
+        android:title="@string/toolbar_refresh_action"
+        app:showAsAction="ifRoom" />
+
+</menu>

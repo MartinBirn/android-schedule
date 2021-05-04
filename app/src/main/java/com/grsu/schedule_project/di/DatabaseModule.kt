@@ -38,4 +38,8 @@ val databaseModule = module {
     single {
         get<ScheduleDatabase>().lessonTeacherDao()
     }
+
+    single {
+        get<ScheduleDatabase>().bookmarkDao()
+    }
 }
