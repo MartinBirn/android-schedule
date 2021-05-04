@@ -39,16 +39,15 @@ class FacultiesFragment : Fragment(R.layout.fragment_faculties), BackButtonListe
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        (activity as AppCompatActivity).setSupportActionBar(viewBinding.toolbar)
         viewBinding.toolbar.title = utils.getStringById(R.string.toolbar_faculties_title)
+        viewBinding.toolbar.setNavigationOnClickListener {
+            facultiesViewModel.onBackPressed()
+        }
         viewBinding.recyclerView.adapter = facultyAdapter
         viewBinding.recyclerView.addItemDecoration(
             DividerItemDecoration(context, RecyclerView.VERTICAL)
         )
-
-        (activity as AppCompatActivity).setSupportActionBar(viewBinding.toolbar)
-        viewBinding.toolbar.setNavigationOnClickListener {
-            facultiesViewModel.onBackPressed()
-        }
 
         subscribeUi()
     }
