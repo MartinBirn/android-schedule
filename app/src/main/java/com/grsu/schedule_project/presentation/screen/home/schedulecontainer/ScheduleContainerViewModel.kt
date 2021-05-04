@@ -13,6 +13,10 @@ class ScheduleContainerViewModel(
         router.replaceScreen(screen)
     }
 
+    fun navigateTo(screen: FragmentScreen) {
+        router.navigateTo(screen)
+    }
+
     fun backPressed() {
         router.backInContainer(R.id.scheduleContainer)
     }

@@ -68,7 +68,7 @@ class ScheduleViewModel(
         viewModelScope.launch {
             if (groupId != null) {
                 bookmarkRepository.insertOrDeleteBookmark(
-                    BookmarkDbo(groupId = groupId, groupTitle = groupTitle)
+                    bookmark.value ?: BookmarkDbo(groupId = groupId, groupTitle = groupTitle)
                 )
             }
         }

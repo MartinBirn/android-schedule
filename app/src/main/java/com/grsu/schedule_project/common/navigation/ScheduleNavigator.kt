@@ -7,10 +7,9 @@ import androidx.fragment.app.commitNow
 import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.grsu.schedule_project.R
-import com.grsu.schedule_project.common.navigation.commands.BackInActivity
-import com.grsu.schedule_project.common.navigation.commands.BackInContainer
-import com.grsu.schedule_project.common.navigation.commands.SwitchTabCommand
+import com.grsu.schedule_project.common.navigation.commands.*
 import com.grsu.schedule_project.presentation.common.BackButtonListener
+import com.grsu.schedule_project.presentation.common.OnGroupClickListener
 
 class ScheduleNavigator(
     activity: FragmentActivity,
@@ -23,6 +22,8 @@ class ScheduleNavigator(
             is SwitchTabCommand -> switchTab(command)
             is BackInActivity -> backInActivity()
             is BackInContainer -> backInContainer(command)
+            is OpenScheduleInActivity -> openScheduleInActivity(command)
+            is OpenSchedule -> openSchedule(command)
             else -> super.applyCommand(command)
         }
     }
@@ -86,5 +87,14 @@ class ScheduleNavigator(
         } else {
             back()
         }
+    }
+
+    private fun openScheduleInActivity(command: OpenScheduleInActivity) {
+        val fragment = fragmentManager.findFragmentByTag(command.containerTag)
+        (fragment as? OnGroupClickListener)?.onGroupClick(command.groupId, command.groupTitle)
+    }
+
+    private fun openSchedule(command: OpenSchedule) {
+        (activity as? OnGroupClickListener)?.onGroupClick(command.groupId, command.groupTitle)
     }
 }

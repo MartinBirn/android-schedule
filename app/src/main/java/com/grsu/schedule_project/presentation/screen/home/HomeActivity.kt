@@ -10,11 +10,14 @@ import com.github.terrakok.cicerone.NavigatorHolder
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.grsu.schedule_project.R
 import com.grsu.schedule_project.common.navigation.ScheduleNavigator
+import com.grsu.schedule_project.common.utils.Utils
 import com.grsu.schedule_project.databinding.ActivityHomeBinding
+import com.grsu.schedule_project.presentation.common.OnGroupClickListener
+import com.grsu.schedule_project.presentation.common.OnTabChanged
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
-class HomeActivity : AppCompatActivity(R.layout.activity_home) {
+class HomeActivity : AppCompatActivity(R.layout.activity_home), OnGroupClickListener, OnTabChanged {
 
     companion object {
         fun getIntent(context: Context) = Intent(context, HomeActivity::class.java)
@@ -29,6 +32,8 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home) {
 
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var bottomNavigationView: BottomNavigationView
+
+    private val utils: Utils by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,5 +75,17 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home) {
 
     override fun onBackPressed() {
         homeViewModel.onBackPressed()
+    }
+
+    override fun onGroupClick(groupId: String?, groupTitle: String?) {
+        homeViewModel.onGroupClick(
+            utils.getStringById(R.string.menu_schedule_title),
+            groupId,
+            groupTitle
+        )
+    }
+
+    override fun onTabChange(tabId: Int) {
+        bottomNavigationView.selectedItemId = tabId
     }
 }

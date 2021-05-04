@@ -11,11 +11,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_1.5x"
         android:layout_marginTop="@dimen/spacing_0.5x"
+        android:ellipsize="end"
         android:gravity="center_horizontal"
+        android:lines="1"
         android:textSize="@dimen/large_text_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="16:40" />
+        tools:text="@tools:sample/date/hhmm" />
 
     <TextView
         android:id="@+id/time_end"
@@ -23,11 +25,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_1.5x"
         android:layout_marginBottom="@dimen/spacing_0.5x"
+        android:ellipsize="end"
         android:gravity="center_horizontal"
+        android:lines="1"
         android:textSize="@dimen/large_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="18:00" />
+        tools:text="@tools:sample/date/hhmm" />
 
     <View
         android:id="@+id/verticalDivider"
@@ -46,6 +50,8 @@
         android:layout_marginStart="@dimen/spacing_1.5x"
         android:layout_marginTop="@dimen/spacing_0.5x"
         android:layout_marginEnd="@dimen/spacing_1.5x"
+        android:ellipsize="end"
+        android:lines="1"
         android:textSize="@dimen/small_text_size"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/verticalDivider"
@@ -64,7 +70,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/verticalDivider"
         app:layout_constraintTop_toBottomOf="@id/type"
-        tools:text="Физическая культура" />
+        tools:text="@tools:sample/lorem/random" />
 
     <TextView
         android:id="@+id/sub_group"
@@ -72,6 +78,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/spacing_1.5x"
         android:layout_marginEnd="@dimen/spacing_1.5x"
+        android:ellipsize="end"
+        android:lines="1"
         android:textSize="@dimen/normal_text_size"
         app:layout_constraintBottom_toTopOf="@id/teacher"
         app:layout_constraintEnd_toEndOf="parent"
@@ -86,7 +94,9 @@
         android:layout_marginStart="@dimen/spacing_1.5x"
         android:layout_marginEnd="@dimen/spacing_1.5x"
         android:clickable="true"
+        android:ellipsize="end"
         android:focusable="true"
+        android:lines="1"
         android:textSize="@dimen/normal_text_size"
         app:layout_constraintBottom_toTopOf="@id/address"
         app:layout_constraintEnd_toEndOf="parent"
@@ -100,6 +110,8 @@
         android:layout_marginStart="@dimen/spacing_1.5x"
         android:layout_marginEnd="@dimen/spacing_1.5x"
         android:layout_marginBottom="@dimen/spacing_0.5x"
+        android:ellipsize="end"
+        android:lines="1"
         android:textSize="@dimen/normal_text_size"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
