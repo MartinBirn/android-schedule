@@ -8,11 +8,11 @@ import com.grsu.schedule_project.R
 import com.grsu.schedule_project.common.navigation.ScheduleRouter
 import com.grsu.schedule_project.common.utils.Utils
 import com.grsu.schedule_project.data.model.errorhandling.RepoResult
+import com.grsu.schedule_project.data.model.snackbarhelpers.SNACK_BAR_CAUSE_EMPTY
+import com.grsu.schedule_project.data.model.snackbarhelpers.SnackBarWrapper
 import com.grsu.schedule_project.data.source.group.GroupRepository
 import com.grsu.schedule_project.presentation.common.OnClickListener
 import com.grsu.schedule_project.presentation.common.listadapters.GroupItemViewModel
-import com.grsu.schedule_project.presentation.common.snackbarhelpers.SNACK_BAR_CAUSE_EMPTY
-import com.grsu.schedule_project.presentation.common.snackbarhelpers.SnackBarWrapper
 import com.grsu.schedule_project.presentation.screen.home.HomeScreens
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.launch
@@ -50,8 +50,10 @@ class GroupsViewModel(
     }
 
     private fun getGroups() {
-        if (departmentId == null || facultyId == null || courseId == null)
-            return router.backTo(HomeScreens.departmentScreen())
+        if (departmentId == null || facultyId == null || courseId == null) {
+            router.backTo(HomeScreens.departmentScreen())
+            return
+        }
         groupJob = viewModelScope.launch {
             //delete previous results
             groupRepository.deleteGroups()
@@ -71,7 +73,12 @@ class GroupsViewModel(
                                 it.title,
                                 onClickListener = object : OnClickListener {
                                     override fun onClick() {
-                                        router.navigateTo(HomeScreens.scheduleScreen())
+                                        router.navigateTo(
+                                            HomeScreens.scheduleScreen(
+                                                groupId = it.id,
+                                                groupTitle = it.title
+                                            )
+                                        )
                                     }
                                 })
                         }

@@ -3,6 +3,7 @@ package com.grsu.schedule_project.common.navigation
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.commitNow
 import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.grsu.schedule_project.R
@@ -27,31 +28,36 @@ class ScheduleNavigator(
     }
 
     private fun switchTab(command: SwitchTabCommand) {
-        val fm = fragmentManager
         var currentFragment: Fragment? = null
-        val fragments = fm.fragments
+        val fragments = fragmentManager.fragments
         for (f in fragments) {
             if (f.isVisible) {
                 currentFragment = f
                 break
             }
         }
-        val newFragment = fm.findFragmentByTag(command.title)
-        if (currentFragment != null && newFragment != null && currentFragment === newFragment) return
-        val transaction = fm.beginTransaction()
-        if (newFragment == null) {
-            transaction.add(
-                R.id.fragmentContainer,
-                command.screen.createFragment(fm.fragmentFactory), command.title
+        val newFragment = fragmentManager.findFragmentByTag(command.title)
+        if (currentFragment != null && newFragment != null && currentFragment === newFragment) {
+            currentFragment.childFragmentManager.popBackStack(
+                null,
+                FragmentManager.POP_BACK_STACK_INCLUSIVE
             )
+            return
         }
-        if (currentFragment != null) {
-            transaction.hide(currentFragment)
+        fragmentManager.commitNow {
+            if (newFragment == null) {
+                add(
+                    R.id.fragmentContainer,
+                    command.screen.createFragment(fragmentManager.fragmentFactory), command.title
+                )
+            }
+            if (currentFragment != null) {
+                hide(currentFragment)
+            }
+            if (newFragment != null) {
+                show(newFragment)
+            }
         }
-        if (newFragment != null) {
-            transaction.show(newFragment)
-        }
-        transaction.commitNow()
     }
 
     private fun backInActivity() {

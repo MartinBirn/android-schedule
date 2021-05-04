@@ -24,13 +24,15 @@ class ScheduleApplication : Application() {
                 facultyModule,
                 courseModule,
                 groupModule,
+                scheduleModule,
                 networkModule,
                 databaseModule,
                 teacherRepositoryModule,
                 facultyRepositoryModule,
                 departmentRepositoryModule,
                 groupRepositoryModule,
-                scheduleRepositoryModule
+                scheduleRepositoryModule,
+                bookmarkRepositoryModule
             )
         }
     }

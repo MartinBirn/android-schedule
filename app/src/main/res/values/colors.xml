@@ -7,7 +7,15 @@
     <color name="toolbar_text_color">@color/primary_color</color>
     <color name="toolbar_control_normal_color">@color/primary_color</color>
     <color name="toolbar_background_color">@color/white</color>
+
     <color name="bottom_nav_background_color">@color/white</color>
+
+    <color name="divider_color">#FFE0E0E0</color>
+    <color name="day_date_background_color">#F4F4F4</color>
+
+    <color name="teacher_text_link_color">@color/primary_color</color>
+    <color name="teacher_text_pressed_link_color">#803772c7</color>
+    <color name="teacher_highlight_text_color">#00FFFFFF</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>

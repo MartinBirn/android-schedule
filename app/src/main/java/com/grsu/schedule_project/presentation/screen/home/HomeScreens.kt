@@ -10,6 +10,7 @@ import com.grsu.schedule_project.presentation.screen.home.groups.GroupsFragment
 import com.grsu.schedule_project.presentation.screen.home.schedule.ScheduleFragment
 import com.grsu.schedule_project.presentation.screen.home.schedulecontainer.ScheduleContainerFragment
 import com.grsu.schedule_project.presentation.screen.home.settings.SettingsFragment
+import com.grsu.schedule_project.presentation.screen.home.teacher.TeacherFragment
 
 object HomeScreens {
 
@@ -28,7 +29,11 @@ object HomeScreens {
     fun groupScreen(departmentId: String?, facultyId: String?, courseId: String?) =
         FragmentScreen { GroupsFragment.getNewInstance(departmentId, facultyId, courseId) }
 
-    fun scheduleScreen() = FragmentScreen { ScheduleFragment.getNewInstance() }
+    fun scheduleScreen(groupId: String?, groupTitle: String?) =
+        FragmentScreen { ScheduleFragment.getNewInstance(groupId, groupTitle) }
+
+    fun teacherScreen(teacherId: String?) =
+        FragmentScreen { TeacherFragment.getNewInstance(teacherId) }
 
     fun bookmarksScreen() = FragmentScreen { BookmarksFragment.getNewInstance() }
 

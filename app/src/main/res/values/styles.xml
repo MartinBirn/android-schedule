@@ -1,11 +1,18 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
         <item name="colorPrimary">@color/primary_color</item>
         <item name="colorPrimaryDark">@color/primary_dark_color</item>
         <item name="colorAccent">@color/accent_color</item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryDark</item>
         <item name="android:windowBackground">@color/white</item>
+
+        <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
+        <item name="materialCalendarFullscreenTheme">
+            @style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen
+        </item>
+        <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar
+        </item>
     </style>
 
     <style name="BottomNavViewStyle">
@@ -27,6 +34,37 @@
     <style name="ListItemStyle">
         <item name="android:textSize">@dimen/large_text_size</item>
         <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="DayDateStyle">
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:textColor">@color/gray</item>
+    </style>
+
+    <style name="LessonTitleStyle">
+        <item name="android:textSize">@dimen/large_text_size</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="ClickableLinkStyle">
+        <item name="android:textSize">@dimen/normal_text_size</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorLink">@color/link_selector</item>
+        <item name="android:textColorHighlight">@color/teacher_highlight_text_color</item>
+    </style>
+
+    <style name="Divider">
+        <item name="android:background">@color/divider_color</item>
+    </style>
+
+    <style name="Divider.Horizontal" parent="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">1dp</item>
+    </style>
+
+    <style name="Divider.Vertical" parent="Divider">
+        <item name="android:layout_width">1dp</item>
+        <item name="android:layout_height">match_parent</item>
     </style>
 
     <style name="SplashScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">

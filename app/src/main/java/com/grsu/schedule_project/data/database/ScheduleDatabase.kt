@@ -7,7 +7,7 @@ import com.grsu.schedule_project.data.model.dbo.*
 
 @Database(
     entities = [TeacherDbo::class, FacultyDbo::class, DepartmentDbo::class, GroupDbo::class,
-        DayDbo::class, LessonDbo::class, LessonTeacherDbo::class],
+        DayDbo::class, LessonDbo::class, LessonTeacherDbo::class, BookmarkDbo::class],
     version = 1,
     exportSchema = false
 )
@@ -26,4 +26,6 @@ abstract class ScheduleDatabase : RoomDatabase() {
     abstract fun lessonDao(): LessonDao
 
     abstract fun lessonTeacherDao(): LessonTeacherDao
+
+    abstract fun bookmarkDao(): BookmarkDao
 }
