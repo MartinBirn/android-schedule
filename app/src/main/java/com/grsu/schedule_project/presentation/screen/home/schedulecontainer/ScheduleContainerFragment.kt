@@ -3,19 +3,23 @@ package com.grsu.schedule_project.presentation.screen.home.schedulecontainer
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
 import com.github.terrakok.cicerone.Navigator
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.grsu.schedule_project.R
 import com.grsu.schedule_project.common.navigation.ScheduleNavigator
 import com.grsu.schedule_project.di.SCHEDULE_CONTAINER
 import com.grsu.schedule_project.presentation.common.BackButtonListener
+import com.grsu.schedule_project.presentation.common.OnGroupClickListener
+import com.grsu.schedule_project.presentation.common.OnTabChanged
 import com.grsu.schedule_project.presentation.screen.home.HomeScreens
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 
 
-class ScheduleContainerFragment : Fragment(R.layout.schedule_container), BackButtonListener {
+class ScheduleContainerFragment : Fragment(R.layout.schedule_container), BackButtonListener,
+    OnGroupClickListener {
 
     companion object {
         fun getNewInstance() = ScheduleContainerFragment()
@@ -27,6 +31,8 @@ class ScheduleContainerFragment : Fragment(R.layout.schedule_container), BackBut
     }
 
     private val scheduleContainerViewModel: ScheduleContainerViewModel by viewModel()
+
+    private var onBackStackListener: FragmentManager.OnBackStackChangedListener? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -48,5 +54,23 @@ class ScheduleContainerFragment : Fragment(R.layout.schedule_container), BackBut
     override fun onBackPressed(): Boolean {
         scheduleContainerViewModel.backPressed()
         return true
+    }
+
+    override fun onGroupClick(groupId: String?, groupTitle: String?) {
+        childFragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
+
+        //for a seamless transition
+        onBackStackListener = FragmentManager.OnBackStackChangedListener {
+            if (this.isVisible) {
+                (activity as? OnTabChanged)?.onTabChange(R.id.schedulePage)
+            }
+            childFragmentManager.removeOnBackStackChangedListener(onBackStackListener!!)
+        }.also {
+            childFragmentManager.addOnBackStackChangedListener(it)
+        }
+
+        scheduleContainerViewModel.navigateTo(
+            HomeScreens.scheduleScreen(groupId, groupTitle)
+        )
     }
 }

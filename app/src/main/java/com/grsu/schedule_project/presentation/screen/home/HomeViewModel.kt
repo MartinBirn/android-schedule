@@ -12,6 +12,10 @@ class HomeViewModel(
         router.backInActivity()
     }
 
+    fun onGroupClick(containerTag: String, groupId: String?, groupTitle: String?) {
+        router.openScheduleInActivity(containerTag, groupId, groupTitle)
+    }
+
     fun switchTab(screen: FragmentScreen, title: String) {
         router.switchTab(screen, title)
     }

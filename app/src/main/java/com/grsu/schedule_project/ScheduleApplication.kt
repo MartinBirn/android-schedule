@@ -25,6 +25,7 @@ class ScheduleApplication : Application() {
                 courseModule,
                 groupModule,
                 scheduleModule,
+                bookmarksModule,
                 networkModule,
                 databaseModule,
                 teacherRepositoryModule,
