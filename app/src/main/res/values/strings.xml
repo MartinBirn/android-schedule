@@ -8,6 +8,7 @@
 
     <string name="snack_bar_groups_not_found">No groups were found</string>
     <string name="snack_bar_schedule_not_found">No schedule found</string>
+    <string name="snack_bar_teacher_not_found">No teacher found</string>
     <string name="snack_bar_undefined_error">Undefined cause of error</string>
 
     <string name="menu_schedule_title">Schedule</string>
@@ -19,12 +20,15 @@
     <string name="toolbar_courses_title">Course</string>
     <string name="toolbar_groups_title">Group</string>
     <string name="toolbar_schedule_title">Schedule</string>
+    <string name="toolbar_teacher_title">Teacher</string>
     <string name="toolbar_bookmarks_title">Bookmarks</string>
     <string name="toolbar_settings_title">Settings</string>
 
     <string name="toolbar_bookmark_action">Add to bookmarks</string>
     <string name="toolbar_date_range_action">Pick a date range</string>
     <string name="toolbar_refresh_action">Refresh</string>
+
+    <string name="teacher_email_title">Email</string>
 
     <string name="course_first_title">1 year</string>
     <string name="course_second_title">2 year</string>
