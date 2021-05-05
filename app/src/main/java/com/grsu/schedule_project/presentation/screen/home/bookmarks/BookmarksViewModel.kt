@@ -3,6 +3,7 @@ package com.grsu.schedule_project.presentation.screen.home.bookmarks
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.asLiveData
 import com.grsu.schedule_project.common.navigation.ScheduleRouter
 import com.grsu.schedule_project.common.utils.Utils
 import com.grsu.schedule_project.data.source.bookmark.BookmarkRepository
@@ -15,7 +16,7 @@ class BookmarksViewModel(
     private val bookmarkRepository: BookmarkRepository
 ) : ViewModel() {
 
-    private val _bookmarks = bookmarkRepository.getBookmarks()
+    private val _bookmarks = bookmarkRepository.getBookmarks().asLiveData()
     private val _bookmarkItemViewModelList = MediatorLiveData<List<BookmarkItemViewModel>>().apply {
         addSource(_bookmarks) { bookmarkDboList ->
             value = bookmarkDboList.map { bookmarkDbo ->

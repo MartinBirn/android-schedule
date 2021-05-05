@@ -2,10 +2,7 @@ package com.grsu.schedule_project.presentation.screen.home.schedule
 
 import android.text.style.ClickableSpan
 import android.view.View
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.grsu.schedule_project.R
 import com.grsu.schedule_project.common.navigation.ScheduleRouter
 import com.grsu.schedule_project.common.utils.Utils
@@ -47,9 +44,7 @@ class ScheduleViewModel(
     val scheduleItemViewModelList: LiveData<List<ScheduleListItem>?>
         get() = _scheduleItemViewModelList
 
-    private val _bookmark = bookmarkRepository.getBookmark(groupId)
-    val bookmark: LiveData<BookmarkDbo?>
-        get() = _bookmark
+    val bookmark: LiveData<BookmarkDbo?> = bookmarkRepository.getBookmark(groupId).asLiveData()
 
     var dateStart: String? = null
     var dateEnd: String? = null

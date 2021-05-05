@@ -1,10 +1,10 @@
 package com.grsu.schedule_project.data.database.dao
 
-import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Query
 import androidx.room.Transaction
 import com.grsu.schedule_project.data.model.dbo.BookmarkDbo
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface BookmarkDao : BaseDao<BookmarkDbo> {
@@ -30,8 +30,8 @@ interface BookmarkDao : BaseDao<BookmarkDbo> {
     suspend fun getBookmark(groupId: String): BookmarkDbo?
 
     @Query("SELECT * FROM bookmark WHERE groupId = :groupId")
-    fun get(groupId: String?): LiveData<BookmarkDbo?>
+    fun get(groupId: String?): Flow<BookmarkDbo?>
 
     @Query("SELECT * FROM bookmark")
-    fun getAll(): LiveData<List<BookmarkDbo>>
+    fun getAll(): Flow<List<BookmarkDbo>>
 }
