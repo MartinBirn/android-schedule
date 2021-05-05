@@ -61,9 +61,7 @@ class ScheduleContainerFragment : Fragment(R.layout.schedule_container), BackBut
 
         //for a seamless transition
         onBackStackListener = FragmentManager.OnBackStackChangedListener {
-            if (this.isVisible) {
-                (activity as? OnTabChanged)?.onTabChange(R.id.schedulePage)
-            }
+            (activity as? OnTabChanged)?.onTabChange(R.id.schedulePage)
             childFragmentManager.removeOnBackStackChangedListener(onBackStackListener!!)
         }.also {
             childFragmentManager.addOnBackStackChangedListener(it)
