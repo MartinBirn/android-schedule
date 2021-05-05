@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/titleSingleLine"
-        style="@style/ListItemStyle"
+        style="@style/ListItemTitleStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
