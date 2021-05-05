@@ -1,6 +1,6 @@
 package com.grsu.schedule_project.data.network
 
-const val BASE_URL = "http://api.grsu.by/1.x/app1/"
+const val BASE_URL = "https://api.grsu.by/1.x/app1/"
 
 const val DEPARTMENT_ID_PATH_KEY = "departmentId"
 const val FACULTY_ID_PATH_KEY = "facultyId"

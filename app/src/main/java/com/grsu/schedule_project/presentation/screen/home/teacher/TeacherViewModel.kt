@@ -46,7 +46,7 @@ class TeacherViewModel(
         getTeachers()
     }
 
-    fun getTeachers() {
+    private fun getTeachers() {
         if (teacherId == null) {
             router.exit()
             return
