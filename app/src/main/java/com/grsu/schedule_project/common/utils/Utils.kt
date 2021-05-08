@@ -1,20 +1,19 @@
 package com.grsu.schedule_project.common.utils
 
-import android.content.Context
 import androidx.core.content.ContextCompat
 import androidx.core.os.ConfigurationCompat
 import java.util.*
 
-class Utils(private val context: Context) {
+class Utils(private val contextManager: ContextManager) {
 
-    fun getStringById(resId: Int) = context.getString(resId)
+    fun getStringById(resId: Int) = contextManager.context.getString(resId)
 
-    fun getDimensionById(resId: Int) = context.resources.getDimension(resId)
+    fun getDimensionById(resId: Int) = contextManager.context.resources.getDimension(resId)
 
-    fun getColorById(resId: Int) = ContextCompat.getColor(context, resId)
+    fun getColorById(resId: Int) = ContextCompat.getColor(contextManager.context, resId)
 
-    fun getDrawableById(resId: Int) = ContextCompat.getDrawable(context, resId)
+    fun getDrawableById(resId: Int) = ContextCompat.getDrawable(contextManager.context, resId)
 
     fun getCurrentLocale(): Locale =
-        ConfigurationCompat.getLocales(context.resources.configuration).get(0)
+        ConfigurationCompat.getLocales(contextManager.context.resources.configuration).get(0)
 }

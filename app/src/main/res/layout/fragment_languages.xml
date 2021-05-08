@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/AppToolbarStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back_24"
+            tools:title="@string/toolbar_languages_title" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <TextView
+        android:id="@+id/enLanguageItem"
+        style="@style/ListItemTitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/single_line_item_height"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:paddingStart="@dimen/spacing_2x"
+        android:paddingEnd="@dimen/spacing_2x"
+        android:text="@string/app_language_en" />
+
+    <View style="@style/Divider.Horizontal" />
+
+    <TextView
+        android:id="@+id/ruLanguageItem"
+        style="@style/ListItemTitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/single_line_item_height"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:paddingStart="@dimen/spacing_2x"
+        android:paddingEnd="@dimen/spacing_2x"
+        android:text="@string/app_language_ru" />
+
+    <View style="@style/Divider.Horizontal" />
+
+    <TextView
+        android:id="@+id/beLanguageItem"
+        style="@style/ListItemTitleStyle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/single_line_item_height"
+        android:ellipsize="end"
+        android:gravity="center_vertical"
+        android:lines="1"
+        android:paddingStart="@dimen/spacing_2x"
+        android:paddingEnd="@dimen/spacing_2x"
+        android:text="@string/app_language_be" />
+
+    <View style="@style/Divider.Horizontal" />
+
+</LinearLayout>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_language">Беларуская</string>
+
+    <string name="error_null_body">Пустое цела адказу</string>
+
+    <string name="action_back">Назад</string>
+    <string name="action_retry">Паўтарыць</string>
+
+    <string name="snack_bar_groups_not_found">Груп не знойдзена</string>
+    <string name="snack_bar_schedule_not_found">Расклад не знойдзена</string>
+    <string name="snack_bar_teacher_not_found">Выкладчык не знойдзены</string>
+    <string name="snack_bar_undefined_error">Невядомая прычына памылкі</string>
+
+    <string name="menu_schedule_title">Расклад</string>
+    <string name="menu_bookmarks_title">Закладкі</string>
+    <string name="menu_settings_title">Налады</string>
+
+    <string name="toolbar_departments_title">Форма навучання</string>
+    <string name="toolbar_faculties_title">Факультэт</string>
+    <string name="toolbar_courses_title">Курс</string>
+    <string name="toolbar_groups_title">Група</string>
+    <string name="toolbar_schedule_title">Расклад</string>
+    <string name="toolbar_teacher_title">Выкладчык</string>
+    <string name="toolbar_settings_title">Налады</string>
+    <string name="toolbar_bookmarks_title">Закладкі</string>
+    <string name="toolbar_languages_title">Мовы</string>
+
+    <string name="toolbar_bookmark_action">Дадаць у закладкі</string>
+    <string name="toolbar_date_range_action">Выберыце дыяпазон дат</string>
+    <string name="toolbar_refresh_action">Абнавіць</string>
+
+    <string name="setting_language_title">Мова</string>
+
+    <string name="course_first_title">1 курс</string>
+    <string name="course_second_title">2 курс</string>
+    <string name="course_third_title">3 курс</string>
+    <string name="course_fourth_title">4 курс</string>
+    <string name="course_fifth_title">5 курс</string>
+    <string name="course_sixth_title">6 курс</string>
+
+    <string name="select_dates">Выберыце даты</string>
+
+    <string-array name="title_day_of_week">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+        <item>Воскресенье</item>
+    </string-array>
+</resources>

@@ -42,4 +42,6 @@ object HomeScreens {
     fun settingsContainerScreen() = FragmentScreen { SettingsContainerFragment.getNewInstance() }
 
     fun settingsScreen() = FragmentScreen { SettingsFragment.getNewInstance() }
+
+    fun languagesScreen() = FragmentScreen { LanguagesFragment.getNewInstance() }
 }
