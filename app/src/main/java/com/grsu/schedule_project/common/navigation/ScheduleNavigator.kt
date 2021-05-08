@@ -7,6 +7,7 @@ import androidx.fragment.app.commitNow
 import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.grsu.schedule_project.R
+import com.grsu.schedule_project.common.EXTRA_KEY
 import com.grsu.schedule_project.common.navigation.commands.*
 import com.grsu.schedule_project.presentation.common.BackButtonListener
 import com.grsu.schedule_project.presentation.common.OnGroupClickListener
@@ -24,6 +25,7 @@ class ScheduleNavigator(
             is BackInContainer -> backInContainer(command)
             is OpenScheduleInActivity -> openScheduleInActivity(command)
             is OpenSchedule -> openSchedule(command)
+            is RestartActivity -> restartActivity(command)
             else -> super.applyCommand(command)
         }
     }
@@ -96,5 +98,14 @@ class ScheduleNavigator(
 
     private fun openSchedule(command: OpenSchedule) {
         (activity as? OnGroupClickListener)?.onGroupClick(command.groupId, command.groupTitle)
+    }
+
+    private fun restartActivity(command: RestartActivity) {
+        activity.finish()
+        activity.overridePendingTransition(0, 0)
+        activity.startActivity(
+            activity.intent.apply { putExtra(EXTRA_KEY, command.extra) }
+        )
+        activity.overridePendingTransition(0, 0)
     }
 }

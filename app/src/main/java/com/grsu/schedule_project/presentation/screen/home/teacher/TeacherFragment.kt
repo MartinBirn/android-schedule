@@ -77,7 +77,7 @@ class TeacherFragment : Fragment(R.layout.fragment_teacher), BackButtonListener 
                 val fullname = "${teacherVo.name} ${teacherVo.surname} ${teacherVo.patronym}"
                 viewBinding.teacherFullName.text = fullname
                 viewBinding.teacherPost.text = teacherVo.post
-                viewBinding.emailContent.text = teacherVo.email
+                viewBinding.emailValue.text = teacherVo.email
             }
         }
     }

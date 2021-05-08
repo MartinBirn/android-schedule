@@ -9,7 +9,10 @@ import com.github.terrakok.cicerone.Navigator
 import com.github.terrakok.cicerone.NavigatorHolder
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.grsu.schedule_project.R
+import com.grsu.schedule_project.common.EXTRA_KEY
+import com.grsu.schedule_project.common.locale.RuntimeLocaleChanger
 import com.grsu.schedule_project.common.navigation.ScheduleNavigator
+import com.grsu.schedule_project.common.utils.ContextManager
 import com.grsu.schedule_project.common.utils.Utils
 import com.grsu.schedule_project.databinding.ActivityHomeBinding
 import com.grsu.schedule_project.presentation.common.OnGroupClickListener
@@ -33,6 +36,7 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home), OnGroupClickList
     private lateinit var homeViewModel: HomeViewModel
     private lateinit var bottomNavigationView: BottomNavigationView
 
+    private val contextManager: ContextManager by inject()
     private val utils: Utils by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,6 +44,7 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home), OnGroupClickList
         homeViewModel = getViewModel()
 
         bottomNavigationView = viewBinding.bottomNavigation
+        bottomNavigationView.inflateMenu(R.menu.bottom_navigation_menu)
         bottomNavigationView.setOnNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.schedulePage -> {
@@ -54,27 +59,38 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home), OnGroupClickList
                     true
                 }
                 R.id.settingsPage -> {
-                    homeViewModel.switchTab(HomeScreens.settingsScreen(), it.title.toString())
+                    homeViewModel.switchTab(
+                        HomeScreens.settingsContainerScreen(),
+                        it.title.toString()
+                    )
                     true
                 }
                 else -> false
             }
         }
-        bottomNavigationView.selectedItemId = R.id.schedulePage
+
+        val argumentTabId: String? = intent.getStringExtra(EXTRA_KEY)
+        bottomNavigationView.selectedItemId = argumentTabId?.toIntOrNull() ?: R.id.schedulePage
     }
 
     override fun onResume() {
         super.onResume()
+        contextManager.context = this
         navigatorHolder.setNavigator(navigator)
     }
 
     override fun onPause() {
+        contextManager.context = this
         navigatorHolder.removeNavigator()
         super.onPause()
     }
 
     override fun onBackPressed() {
         homeViewModel.onBackPressed()
+    }
+
+    override fun attachBaseContext(newBase: Context?) {
+        super.attachBaseContext(newBase?.let { RuntimeLocaleChanger(it).wrapContext() })
     }
 
     override fun onGroupClick(groupId: String?, groupTitle: String?) {

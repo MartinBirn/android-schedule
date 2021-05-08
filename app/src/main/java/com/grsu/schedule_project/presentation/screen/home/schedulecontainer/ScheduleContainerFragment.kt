@@ -18,7 +18,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.qualifier.named
 
 
-class ScheduleContainerFragment : Fragment(R.layout.schedule_container), BackButtonListener,
+class ScheduleContainerFragment : Fragment(R.layout.container_schedule), BackButtonListener,
     OnGroupClickListener {
 
     companion object {
@@ -52,7 +52,7 @@ class ScheduleContainerFragment : Fragment(R.layout.schedule_container), BackBut
     }
 
     override fun onBackPressed(): Boolean {
-        scheduleContainerViewModel.backPressed()
+        scheduleContainerViewModel.onBackPressed()
         return true
     }
 

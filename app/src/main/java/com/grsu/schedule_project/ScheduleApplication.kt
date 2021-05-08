@@ -1,6 +1,9 @@
 package com.grsu.schedule_project
 
 import android.app.Application
+import android.content.Context
+import android.content.res.Configuration
+import com.grsu.schedule_project.common.locale.RuntimeLocaleChanger
 import com.grsu.schedule_project.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -31,6 +34,7 @@ class ScheduleApplication : Application() {
                 bookmarksModule,
                 settingsContainerModule,
                 settingsModule,
+                languagesModule,
                 networkModule,
                 databaseModule,
                 teacherRepositoryModule,
@@ -41,5 +45,14 @@ class ScheduleApplication : Application() {
                 bookmarkRepositoryModule
             )
         }
+    }
+
+    override fun attachBaseContext(base: Context?) {
+        super.attachBaseContext(base?.let { RuntimeLocaleChanger(it).wrapContext() });
+    }
+
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        RuntimeLocaleChanger(this).overrideLocale()
     }
 }

@@ -23,27 +23,22 @@ class GroupRepository(
         facultyId: String,
         course: String
     ): RepoResult<List<GroupDbo>, *> {
-        val groupDboList =
-            localDataSource.getGroups(departmentId, facultyId, course, language = appLanguage)
-        if (groupDboList is Success && groupDboList.response.isEmpty()) {
-            val tempGroupDboList: List<GroupDbo>?
-            when (val apiResult = remoteDataSource.getGroups(
-                departmentId,
-                facultyId,
-                course,
-                language = appLanguage
-            )) {
-                is Success -> tempGroupDboList = apiResult.response
-                else -> return apiResult
-            }
-            return try {
-                localDataSource.insertAndDeletePrevious(*tempGroupDboList.toTypedArray())
-                tempGroupDboList.let(::Success)
-            } catch (e: Throwable) {
-                e.let(::DatabaseFailure)
-            }
+        val tempGroupDboList: List<GroupDbo>?
+        when (val apiResult = remoteDataSource.getGroups(
+            departmentId,
+            facultyId,
+            course,
+            language = appLanguage
+        )) {
+            is Success -> tempGroupDboList = apiResult.response
+            else -> return apiResult
         }
-        return groupDboList
+        return try {
+            localDataSource.insertAndDeletePrevious(*tempGroupDboList.toTypedArray())
+            tempGroupDboList.let(::Success)
+        } catch (e: Throwable) {
+            e.let(::DatabaseFailure)
+        }
     }
 
     suspend fun deleteGroups() {

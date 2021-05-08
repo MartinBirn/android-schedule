@@ -17,7 +17,7 @@ class ScheduleContainerViewModel(
         router.navigateTo(screen)
     }
 
-    fun backPressed() {
+    fun onBackPressed() {
         router.backInContainer(R.id.scheduleContainer)
     }
 }

@@ -11,6 +11,10 @@ class FacultyLocalDataSource(private val facultyDao: FacultyDao) : FacultyDataSo
     override suspend fun getFaculties(language: String?): RepoResult<List<FacultyDbo>, *> =
         facultyDao.getAll().let(::Success)
 
+    suspend fun insert(vararg faculties: FacultyDbo) {
+        facultyDao.insert(*faculties)
+    }
+
     suspend fun insertAndDeletePrevious(vararg faculties: FacultyDbo) {
         facultyDao.insertAndDeletePrevious(*faculties)
     }

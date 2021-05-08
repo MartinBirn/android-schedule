@@ -26,4 +26,8 @@ class ScheduleRouter : Router() {
     fun openSchedule(groupId: String?, groupTitle: String?) {
         executeCommands(OpenSchedule(groupId, groupTitle))
     }
+
+    fun restartActivity(extra: String? = null) {
+        executeCommands(RestartActivity(extra))
+    }
 }

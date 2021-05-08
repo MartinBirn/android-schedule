@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_language">Русский</string>
+
+    <string name="error_null_body">Пустое тело ответа</string>
+
+    <string name="action_retry">Повторить</string>
+    <string name="action_back">Назад</string>
+
+    <string name="snack_bar_groups_not_found">Групп не найдено</string>
+    <string name="snack_bar_schedule_not_found">Расписание не найдено</string>
+    <string name="snack_bar_teacher_not_found">Преподаватель не найден</string>
+    <string name="snack_bar_undefined_error">Неизвестная причина ошибки</string>
+
+    <string name="menu_schedule_title">Расписание</string>
+    <string name="menu_bookmarks_title">Закладки</string>
+    <string name="menu_settings_title">Настройки</string>
+
+    <string name="toolbar_departments_title">Форма обучения</string>
+    <string name="toolbar_faculties_title">Факультет</string>
+    <string name="toolbar_courses_title">Курс</string>
+    <string name="toolbar_groups_title">Группа</string>
+    <string name="toolbar_schedule_title">Расписание</string>
+    <string name="toolbar_teacher_title">Преподаватель</string>
+    <string name="toolbar_bookmarks_title">Закладки</string>
+    <string name="toolbar_settings_title">Настройки</string>
+    <string name="toolbar_languages_title">Языки</string>
+
+    <string name="toolbar_bookmark_action">Добавить в закладки</string>
+    <string name="toolbar_date_range_action">Выбрать диапазон дат</string>
+    <string name="toolbar_refresh_action">Обновить</string>
+
+    <string name="setting_language_title">Язык</string>
+
+    <string name="course_first_title">1 курс</string>
+    <string name="course_second_title">2 курс</string>
+    <string name="course_third_title">3 курс</string>
+    <string name="course_fourth_title">4 курс</string>
+    <string name="course_fifth_title">5 курс</string>
+    <string name="course_sixth_title">6 курс</string>
+
+    <string name="select_dates">Выберите даты</string>
+
+    <string-array name="title_day_of_week">
+        <item>Понедельник</item>
+        <item>Вторник</item>
+        <item>Среда</item>
+        <item>Четверг</item>
+        <item>Пятница</item>
+        <item>Суббота</item>
+        <item>Воскресенье</item>
+    </string-array>
+</resources>

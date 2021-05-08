@@ -55,9 +55,6 @@ class GroupsViewModel(
             return
         }
         groupJob = viewModelScope.launch {
-            //delete previous results
-            groupRepository.deleteGroups()
-
             when (val groupResult =
                 groupRepository.getGroups(departmentId, facultyId, courseId)) {
                 is RepoResult.Success -> {

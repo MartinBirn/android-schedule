@@ -5,5 +5,5 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
 val bookmarksModule = module {
-    viewModel { BookmarksViewModel(router = get(), utils = get(), bookmarkRepository = get()) }
+    viewModel { BookmarksViewModel(router = get(), bookmarkRepository = get()) }
 }

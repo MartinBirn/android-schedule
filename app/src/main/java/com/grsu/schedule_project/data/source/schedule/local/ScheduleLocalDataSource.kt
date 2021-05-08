@@ -22,6 +22,14 @@ class ScheduleLocalDataSource(private val dayDao: DayDao, private val lessonDao:
         return days.let(::Success)
     }
 
+    suspend fun insert(vararg days: DayDbo) {
+        dayDao.insert(*days)
+    }
+
+    suspend fun insert(vararg lessons: LessonDbo) {
+        lessonDao.insert(*lessons)
+    }
+
     suspend fun insertAndDeletePrevious(vararg days: DayDbo) {
         dayDao.insertAndDeletePrevious(*days)
     }

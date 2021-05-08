@@ -56,6 +56,7 @@ class ScheduleViewModel(
     fun retryGetSchedule() {
         scheduleJob?.cancel()
         _scheduleItemViewModelList.value = null
+        _spinner.value = true
         getSchedule()
     }
 
@@ -75,10 +76,6 @@ class ScheduleViewModel(
             return
         }
         scheduleJob = viewModelScope.launch {
-            _spinner.value = true
-            //delete previous results
-            scheduleRepository.deleteSchedule()
-
             when (val scheduleResult =
                 scheduleRepository.getGroupSchedule(groupId, dateStart, dateEnd)) {
                 is RepoResult.Success -> {
