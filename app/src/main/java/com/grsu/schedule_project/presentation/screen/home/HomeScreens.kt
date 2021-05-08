@@ -7,9 +7,11 @@ import com.grsu.schedule_project.presentation.screen.home.courses.CoursesFragmen
 import com.grsu.schedule_project.presentation.screen.home.departments.DepartmentsFragment
 import com.grsu.schedule_project.presentation.screen.home.faculties.FacultiesFragment
 import com.grsu.schedule_project.presentation.screen.home.groups.GroupsFragment
+import com.grsu.schedule_project.presentation.screen.home.languages.LanguagesFragment
 import com.grsu.schedule_project.presentation.screen.home.schedule.ScheduleFragment
 import com.grsu.schedule_project.presentation.screen.home.schedulecontainer.ScheduleContainerFragment
 import com.grsu.schedule_project.presentation.screen.home.settings.SettingsFragment
+import com.grsu.schedule_project.presentation.screen.home.settingscontainer.SettingsContainerFragment
 import com.grsu.schedule_project.presentation.screen.home.teacher.TeacherFragment
 
 object HomeScreens {
@@ -36,6 +38,8 @@ object HomeScreens {
         FragmentScreen { TeacherFragment.getNewInstance(teacherId) }
 
     fun bookmarksScreen() = FragmentScreen { BookmarksFragment.getNewInstance() }
+
+    fun settingsContainerScreen() = FragmentScreen { SettingsContainerFragment.getNewInstance() }
 
     fun settingsScreen() = FragmentScreen { SettingsFragment.getNewInstance() }
 }
