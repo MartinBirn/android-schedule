@@ -16,6 +16,10 @@ class GroupLocalDataSource(private val groupDao: GroupDao) : GroupDataSource {
     ): RepoResult<List<GroupDbo>, *> =
         groupDao.getAll().let(::Success)
 
+    suspend fun insert(vararg groups: GroupDbo) {
+        groupDao.insert(*groups)
+    }
+
     suspend fun insertAndDeletePrevious(vararg groups: GroupDbo) {
         groupDao.insertAndDeletePrevious(*groups)
     }

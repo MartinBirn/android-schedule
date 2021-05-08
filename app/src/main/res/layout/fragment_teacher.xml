@@ -38,7 +38,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:constraint_referenced_ids="teacherIcon, teacherFullName, teacherPost, horizontalDivider,
-        emailTitle,emailContent, emailIcon" />
+        emailTitle,emailValue, emailIcon" />
 
     <ImageView
         android:id="@+id/teacherIcon"
@@ -105,7 +105,7 @@
         app:layout_constraintTop_toBottomOf="@id/horizontalDivider" />
 
     <TextView
-        android:id="@+id/emailContent"
+        android:id="@+id/emailValue"
         style="@style/ListItemCaptionBlackStyle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

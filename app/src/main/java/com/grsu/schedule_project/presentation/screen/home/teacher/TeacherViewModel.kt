@@ -52,9 +52,6 @@ class TeacherViewModel(
             return
         }
         teacherJob = viewModelScope.launch {
-            //delete previous teachers
-            teacherRepository.deleteTeachers()
-
             when (val teacherResult = teacherRepository.getTeachers(teacherId)) {
                 is RepoResult.Success -> {
                     if (teacherResult.response.isEmpty()) {

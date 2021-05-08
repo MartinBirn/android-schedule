@@ -11,6 +11,10 @@ class DepartmentLocalDataSource(private val departmentDao: DepartmentDao) : Depa
     override suspend fun getDepartments(language: String?): RepoResult<List<DepartmentDbo>, *> =
         departmentDao.getAll().let(::Success)
 
+    suspend fun insert(vararg departments: DepartmentDbo) {
+        departmentDao.insert(*departments)
+    }
+
     suspend fun insertAndDeletePrevious(vararg departments: DepartmentDbo) {
         departmentDao.insertAndDeletePrevious(*departments)
     }

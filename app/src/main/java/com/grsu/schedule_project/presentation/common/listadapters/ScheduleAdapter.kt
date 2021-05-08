@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.grsu.schedule_project.common.utils.DATE_API_RESPONSE_PATTERN
 import com.grsu.schedule_project.common.utils.DATE_SCHEDULE_VIEW_PATTERN
 import com.grsu.schedule_project.common.utils.DateUtils
-import com.grsu.schedule_project.common.utils.Utils
 import com.grsu.schedule_project.data.model.vo.LessonTeacherVo
 import com.grsu.schedule_project.data.model.vo.SubGroupVo
 import com.grsu.schedule_project.databinding.DayDateBinding
@@ -54,7 +53,6 @@ class ScheduleAdapter :
     class DateViewHolder(private val binding: DayDateBinding) :
         RecyclerView.ViewHolder(binding.root), KoinComponent {
 
-        private val utils: Utils by inject()
         private val dateUtils: DateUtils by inject()
 
         fun bind(dateListItem: DateListItem) {

@@ -23,25 +23,21 @@ class TeacherRepository(
         teacherId: String? = null,
         sort: String? = null
     ): RepoResult<List<TeacherDbo>, *> {
-        val teacherDboList = localDataSource.getTeachers()
-        if (teacherDboList is Success && teacherDboList.response.isEmpty()) {
-            var tempTeacherDboList: List<TeacherDbo>
-            when (val apiResult =
-                remoteDataSource.getTeachers(teacherId, sort, language = appLanguage)) {
-                is Success -> tempTeacherDboList = apiResult.response
-                else -> return apiResult
-            }
-            try {
-                tempTeacherDboList =
-                        //delete records with negative id's
-                    tempTeacherDboList.filter { teacherDbo -> teacherDbo.id?.toInt()!! > 0 }
-                localDataSource.insertAndDeletePrevious(*tempTeacherDboList.toTypedArray())
-                return tempTeacherDboList.let(::Success)
-            } catch (e: Throwable) {
-                return e.let(::DatabaseFailure)
-            }
+        var tempTeacherDboList: List<TeacherDbo>
+        when (val apiResult =
+            remoteDataSource.getTeachers(teacherId, sort, language = appLanguage)) {
+            is Success -> tempTeacherDboList = apiResult.response
+            else -> return apiResult
         }
-        return teacherDboList
+        try {
+            tempTeacherDboList =
+                    //delete records with negative id's
+                tempTeacherDboList.filter { teacherDbo -> teacherDbo.id?.toInt()!! > 0 }
+            localDataSource.insertAndDeletePrevious(*tempTeacherDboList.toTypedArray())
+            return tempTeacherDboList.let(::Success)
+        } catch (e: Throwable) {
+            return e.let(::DatabaseFailure)
+        }
     }
 
     suspend fun deleteTeachers() {

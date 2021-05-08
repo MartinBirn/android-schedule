@@ -23,29 +23,25 @@ class ScheduleRepository(
         dateStart: String? = null,
         dateEnd: String? = null
     ): RepoResult<List<DayDbo>, *> {
-        val dayDboList = localDataSource.getGroupSchedule(groupId = groupId)
-        if (dayDboList is Success && dayDboList.response.isEmpty()) {
-            val tempDayDboList: List<DayDbo>
-            when (val apiResult = remoteDataSource.getGroupSchedule(
-                groupId,
-                dateStart,
-                dateEnd,
-                language = appLanguage
-            )) {
-                is Success -> tempDayDboList = apiResult.response
-                else -> return apiResult
-            }
-            try {
-                val tempLessonsDboList = tempDayDboList.mapNotNull { it.lessons }.flatten()
-                localDataSource.insertAndDeletePrevious(*tempDayDboList.toTypedArray())
-                localDataSource.insertAndDeletePrevious(*tempLessonsDboList.toTypedArray())
-
-                return tempDayDboList.let(::Success)
-            } catch (e: Throwable) {
-                return e.let(::DatabaseFailure)
-            }
+        val tempDayDboList: List<DayDbo>
+        when (val apiResult = remoteDataSource.getGroupSchedule(
+            groupId,
+            dateStart,
+            dateEnd,
+            language = appLanguage
+        )) {
+            is Success -> tempDayDboList = apiResult.response
+            else -> return apiResult
         }
-        return dayDboList
+        try {
+            val tempLessonsDboList = tempDayDboList.mapNotNull { it.lessons }.flatten()
+            localDataSource.insertAndDeletePrevious(*tempDayDboList.toTypedArray())
+            localDataSource.insertAndDeletePrevious(*tempLessonsDboList.toTypedArray())
+
+            return tempDayDboList.let(::Success)
+        } catch (e: Throwable) {
+            return e.let(::DatabaseFailure)
+        }
     }
 
     suspend fun deleteSchedule() {

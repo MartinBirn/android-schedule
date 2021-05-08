@@ -14,6 +14,10 @@ class TeacherLocalDataSource(private val teacherDao: TeacherDao) : TeacherDataSo
         language: String?
     ): RepoResult<List<TeacherDbo>, *> = teacherDao.getAll().let(::Success)
 
+    suspend fun insert(vararg teachers: TeacherDbo) {
+        teacherDao.insert(*teachers)
+    }
+
     suspend fun insertAndDeletePrevious(vararg teachers: TeacherDbo) {
         teacherDao.insertAndDeletePrevious(*teachers)
     }

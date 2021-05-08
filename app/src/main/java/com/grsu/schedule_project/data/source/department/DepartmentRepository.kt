@@ -27,7 +27,7 @@ class DepartmentRepository(
                 else -> return apiResult
             }
             return try {
-                localDataSource.insertAndDeletePrevious(*tempDepartmentDboList.toTypedArray())
+                localDataSource.insert(*tempDepartmentDboList.toTypedArray())
                 tempDepartmentDboList.let(::Success)
             } catch (e: Throwable) {
                 e.let(::DatabaseFailure)
