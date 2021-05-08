@@ -4,6 +4,7 @@ import android.app.Application
 import com.grsu.schedule_project.di.*
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
+import java.util.*
 
 class ScheduleApplication : Application() {
 
@@ -18,6 +19,7 @@ class ScheduleApplication : Application() {
                 commonModule,
                 navigationModule,
                 scheduleContainerNavigationModule,
+                settingsContainerNavigationModule,
                 homeModule,
                 scheduleContainerModule,
                 departmentModule,
@@ -27,6 +29,8 @@ class ScheduleApplication : Application() {
                 scheduleModule,
                 teacherModule,
                 bookmarksModule,
+                settingsContainerModule,
+                settingsModule,
                 networkModule,
                 databaseModule,
                 teacherRepositoryModule,
