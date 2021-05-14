@@ -53,6 +53,7 @@ class ScheduleContainerFragment : Fragment(R.layout.container_schedule), BackBut
     }
 
     override fun recreate() {
+        childFragmentManager.popBackStackImmediate(null, FragmentManager.POP_BACK_STACK_INCLUSIVE)
         childFragmentManager.fragments.map {
             (it as? RecreateActionListener)?.recreate()
         }
