@@ -5,5 +5,5 @@ import com.github.terrakok.cicerone.androidx.FragmentScreen
 
 data class SwitchTabCommand(
     val screen: FragmentScreen,
-    val title: String
+    val tag: String
 ) : Command

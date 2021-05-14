@@ -16,7 +16,6 @@ import com.grsu.schedule_project.common.locale.RuntimeLocaleChanger
 import com.grsu.schedule_project.common.navigation.ScheduleNavigator
 import com.grsu.schedule_project.common.preferences.util.int
 import com.grsu.schedule_project.common.utils.ContextManager
-import com.grsu.schedule_project.common.utils.Utils
 import com.grsu.schedule_project.databinding.ActivityHomeBinding
 import com.grsu.schedule_project.di.PRIVATE_STORAGE
 import com.grsu.schedule_project.presentation.common.OnGroupClickListener
@@ -24,6 +23,12 @@ import com.grsu.schedule_project.presentation.common.OnTabChanged
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.qualifier.named
+
+private const val SCHEDULE_TAB_TAG = "schedule_tab_tag"
+private const val BOOKMARKS_TAB_TAG = "bookmarks_tab_tag"
+private const val SETTINGS_TAB_TAG = "settings_tab_tag"
+
+private const val RECREATED_KEY = "recreated_key"
 
 class HomeActivity : AppCompatActivity(R.layout.activity_home), OnGroupClickListener, OnTabChanged {
 
@@ -42,9 +47,10 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home), OnGroupClickList
     private lateinit var bottomNavigationView: BottomNavigationView
 
     private val contextManager: ContextManager by inject()
-    private val utils: Utils by inject()
     private val preferences: SharedPreferences by inject(named(PRIVATE_STORAGE))
     private val appThemeId by preferences.int(APP_THEME_ID_KEY)
+
+    private var recreated = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         val themeId: Int = appThemeId
@@ -59,24 +65,29 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home), OnGroupClickList
                 R.id.schedulePage -> {
                     homeViewModel.switchTab(
                         HomeScreens.scheduleContainerScreen(),
-                        it.title.toString()
+                        SCHEDULE_TAB_TAG
                     )
                     true
                 }
                 R.id.bookmarksPage -> {
-                    homeViewModel.switchTab(HomeScreens.bookmarksScreen(), it.title.toString())
+                    homeViewModel.switchTab(
+                        HomeScreens.bookmarksScreen(),
+                        BOOKMARKS_TAB_TAG
+                    )
                     true
                 }
                 R.id.settingsPage -> {
                     homeViewModel.switchTab(
                         HomeScreens.settingsContainerScreen(),
-                        it.title.toString()
+                        SETTINGS_TAB_TAG
                     )
                     true
                 }
                 else -> false
             }
         }
+
+        if (savedInstanceState?.getBoolean(RECREATED_KEY) == true) return
 
         val argumentTabId: String? = intent.getStringExtra(TAB_ID_KEY)
         bottomNavigationView.selectedItemId = argumentTabId?.toIntOrNull() ?: R.id.schedulePage
@@ -102,9 +113,19 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home), OnGroupClickList
         super.attachBaseContext(newBase?.let { RuntimeLocaleChanger(it).wrapContext() })
     }
 
+    override fun recreate() {
+        super.recreate()
+        recreated = true
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putBoolean(RECREATED_KEY, recreated)
+    }
+
     override fun onGroupClick(groupId: String?, groupTitle: String?) {
         homeViewModel.onGroupClick(
-            utils.getStringById(R.string.menu_schedule_title),
+            SCHEDULE_TAB_TAG,
             groupId,
             groupTitle
         )

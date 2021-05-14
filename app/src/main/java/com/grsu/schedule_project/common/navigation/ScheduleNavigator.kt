@@ -38,7 +38,7 @@ class ScheduleNavigator(
                 break
             }
         }
-        val newFragment = fragmentManager.findFragmentByTag(command.title)
+        val newFragment = fragmentManager.findFragmentByTag(command.tag)
         if (currentFragment != null && newFragment != null && currentFragment === newFragment) {
             currentFragment.childFragmentManager.popBackStack(
                 null,
@@ -50,7 +50,7 @@ class ScheduleNavigator(
             if (newFragment == null) {
                 add(
                     R.id.fragmentContainer,
-                    command.screen.createFragment(fragmentManager.fragmentFactory), command.title
+                    command.screen.createFragment(fragmentManager.fragmentFactory), command.tag
                 )
             }
             if (currentFragment != null) {
@@ -91,7 +91,7 @@ class ScheduleNavigator(
     }
 
     private fun openScheduleInActivity(command: OpenScheduleInActivity) {
-        val fragment = fragmentManager.findFragmentByTag(command.containerTag)
+        val fragment = activity.supportFragmentManager.findFragmentByTag(command.containerTag)
         (fragment as? OnGroupClickListener)?.onGroupClick(command.groupId, command.groupTitle)
     }
 
@@ -100,13 +100,9 @@ class ScheduleNavigator(
     }
 
     private fun restartActivity(command: RestartActivity) {
-        activity.finish()
-        activity.overridePendingTransition(0, 0)
-        activity.startActivity(
-            activity.intent.apply {
-                command.extraPair.map { putExtra(it.first, it.second) }
-            }
-        )
-        activity.overridePendingTransition(0, 0)
+        activity.intent.apply {
+            command.extraPair.map { putExtra(it.first, it.second) }
+        }
+        activity.recreate()
     }
 }

@@ -7,8 +7,8 @@ import com.grsu.schedule_project.common.navigation.commands.*
 
 class ScheduleRouter : Router() {
 
-    fun switchTab(screen: FragmentScreen, title: String) {
-        executeCommands(SwitchTabCommand(screen, title))
+    fun switchTab(screen: FragmentScreen, tag: String) {
+        executeCommands(SwitchTabCommand(screen, tag))
     }
 
     fun backInActivity() {

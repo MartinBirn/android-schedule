@@ -16,7 +16,7 @@ class HomeViewModel(
         router.openScheduleInActivity(containerTag, groupId, groupTitle)
     }
 
-    fun switchTab(screen: FragmentScreen, title: String) {
-        router.switchTab(screen, title)
+    fun switchTab(screen: FragmentScreen, tag: String) {
+        router.switchTab(screen, tag)
     }
 }

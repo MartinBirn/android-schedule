@@ -5,7 +5,7 @@
     <color name="accent_color">#719ff9</color>
 
     <color name="dark_primary_color">#96c8f4</color>
-    <color name="dark_primary_dark_color">#6497c1</color>
+    <color name="dark_primary_dark_color">@color/black</color>
     <color name="dark_accent_color">#c9fbff</color>
 
     <color name="toolbar_text_color">@color/primary_color</color>
