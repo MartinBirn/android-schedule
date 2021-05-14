@@ -28,8 +28,8 @@ class DepartmentsViewModel(
     val spinner: LiveData<Boolean>
         get() = _spinner
 
-    private val _departmentItemViewModelList = MutableLiveData<List<DepartmentItemViewModel>>()
-    val departmentItemViewModelList: LiveData<List<DepartmentItemViewModel>>
+    private val _departmentItemViewModelList = MutableLiveData<List<DepartmentItemViewModel>?>()
+    val departmentItemViewModelList: MutableLiveData<List<DepartmentItemViewModel>?>
         get() = _departmentItemViewModelList
 
     init {
@@ -38,6 +38,8 @@ class DepartmentsViewModel(
 
     fun retryGetDepartments() {
         departmentJob?.cancel()
+        _spinner.value = true
+        _departmentItemViewModelList.value = null
         getDepartments()
     }
 

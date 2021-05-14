@@ -10,17 +10,17 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.grsu.schedule_project.R
-import com.grsu.schedule_project.common.utils.Utils
 import com.grsu.schedule_project.data.model.snackbarhelpers.SNACK_BAR_CAUSE_EMPTY
 import com.grsu.schedule_project.data.model.snackbarhelpers.SNACK_BAR_CAUSE_ERROR
 import com.grsu.schedule_project.databinding.FragmentGroupsBinding
 import com.grsu.schedule_project.presentation.common.BackButtonListener
+import com.grsu.schedule_project.presentation.common.RecreateActionListener
 import com.grsu.schedule_project.presentation.common.listadapters.GroupAdapter
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-class GroupsFragment : Fragment(R.layout.fragment_groups), BackButtonListener {
+class GroupsFragment : Fragment(R.layout.fragment_groups), BackButtonListener,
+    RecreateActionListener {
 
     companion object {
         private const val DEPARTMENT_ID = "department_id"
@@ -48,12 +48,9 @@ class GroupsFragment : Fragment(R.layout.fragment_groups), BackButtonListener {
     }
     private val groupAdapter = GroupAdapter()
 
-    private val utils: Utils by inject()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).setSupportActionBar(viewBinding.toolbar)
-        viewBinding.toolbar.title = utils.getStringById(R.string.toolbar_groups_title)
         viewBinding.toolbar.setNavigationOnClickListener {
             groupsViewModel.onBackPressed()
         }
@@ -93,6 +90,10 @@ class GroupsFragment : Fragment(R.layout.fragment_groups), BackButtonListener {
         groupsViewModel.groupItemViewModelList.observe(viewLifecycleOwner) { groupItemViewModelList ->
             groupAdapter.submitList(groupItemViewModelList)
         }
+    }
+
+    override fun recreate() {
+        groupsViewModel.retryGetGroups()
     }
 
     override fun onBackPressed(): Boolean {

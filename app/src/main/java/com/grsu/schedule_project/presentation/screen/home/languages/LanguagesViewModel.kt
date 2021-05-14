@@ -27,9 +27,8 @@ class LanguagesViewModel(
         viewModelScope.launch {
             departmentRepository.deleteDepartments()
             facultyRepository.deleteFaculties()
+            router.restartActivity(TAB_ID_KEY to R.id.settingsPage.toString())
         }
-
-        router.restartActivity(TAB_ID_KEY to R.id.settingsPage.toString())
     }
 
     fun onBackPressed() {

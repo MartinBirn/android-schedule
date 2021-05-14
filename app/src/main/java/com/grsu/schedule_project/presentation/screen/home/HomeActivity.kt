@@ -20,6 +20,7 @@ import com.grsu.schedule_project.databinding.ActivityHomeBinding
 import com.grsu.schedule_project.di.PRIVATE_STORAGE
 import com.grsu.schedule_project.presentation.common.OnGroupClickListener
 import com.grsu.schedule_project.presentation.common.OnTabChanged
+import com.grsu.schedule_project.presentation.common.RecreateActionListener
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 import org.koin.core.qualifier.named
@@ -116,6 +117,9 @@ class HomeActivity : AppCompatActivity(R.layout.activity_home), OnGroupClickList
     override fun recreate() {
         super.recreate()
         recreated = true
+        supportFragmentManager.fragments.map {
+            (it as? RecreateActionListener)?.recreate()
+        }
     }
 
     override fun onSaveInstanceState(outState: Bundle) {

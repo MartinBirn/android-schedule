@@ -9,10 +9,8 @@ import com.grsu.schedule_project.R
 import com.grsu.schedule_project.common.APP_LANGUAGE_BY_VALUE
 import com.grsu.schedule_project.common.APP_LANGUAGE_EN_VALUE
 import com.grsu.schedule_project.common.APP_LANGUAGE_RU_VALUE
-import com.grsu.schedule_project.common.utils.Utils
 import com.grsu.schedule_project.databinding.FragmentLanguagesBinding
 import com.grsu.schedule_project.presentation.common.BackButtonListener
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class LanguagesFragment : Fragment(R.layout.fragment_languages), BackButtonListener {
@@ -25,12 +23,9 @@ class LanguagesFragment : Fragment(R.layout.fragment_languages), BackButtonListe
 
     private val languagesViewModel: LanguagesViewModel by viewModel()
 
-    private val utils: Utils by inject()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).setSupportActionBar(viewBinding.toolbar)
-        viewBinding.toolbar.title = utils.getStringById(R.string.toolbar_languages_title)
         viewBinding.toolbar.setNavigationOnClickListener {
             languagesViewModel.onBackPressed()
         }

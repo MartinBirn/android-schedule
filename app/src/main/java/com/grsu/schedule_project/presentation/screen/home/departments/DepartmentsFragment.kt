@@ -8,14 +8,14 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.grsu.schedule_project.R
-import com.grsu.schedule_project.common.utils.Utils
 import com.grsu.schedule_project.databinding.FragmentDepartmentsBinding
 import com.grsu.schedule_project.presentation.common.BackButtonListener
+import com.grsu.schedule_project.presentation.common.RecreateActionListener
 import com.grsu.schedule_project.presentation.common.listadapters.DepartmentAdapter
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class DepartmentsFragment : Fragment(R.layout.fragment_departments), BackButtonListener {
+class DepartmentsFragment : Fragment(R.layout.fragment_departments), BackButtonListener,
+    RecreateActionListener {
 
     companion object {
         fun getNewInstance() = DepartmentsFragment()
@@ -26,11 +26,8 @@ class DepartmentsFragment : Fragment(R.layout.fragment_departments), BackButtonL
     private val departmentsViewModel: DepartmentsViewModel by viewModel()
     private val departmentAdapter = DepartmentAdapter()
 
-    private val utils: Utils by inject()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewBinding.toolbar.title = utils.getStringById(R.string.toolbar_departments_title)
         viewBinding.recyclerView.adapter = departmentAdapter
         viewBinding.recyclerView.addItemDecoration(
             DividerItemDecoration(context, RecyclerView.VERTICAL)
@@ -55,6 +52,10 @@ class DepartmentsFragment : Fragment(R.layout.fragment_departments), BackButtonL
         departmentsViewModel.departmentItemViewModelList.observe(viewLifecycleOwner) { departmentItemViewModelList ->
             departmentAdapter.submitList(departmentItemViewModelList)
         }
+    }
+
+    override fun recreate() {
+        departmentsViewModel.retryGetDepartments()
     }
 
     override fun onBackPressed(): Boolean {

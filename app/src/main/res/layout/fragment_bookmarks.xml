@@ -16,7 +16,7 @@
             style="@style/AppToolbarStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:title="@string/toolbar_bookmarks_title" />
+            app:title="@string/toolbar_bookmarks_title" />
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout

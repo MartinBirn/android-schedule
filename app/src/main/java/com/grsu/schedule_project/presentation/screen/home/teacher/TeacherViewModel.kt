@@ -43,6 +43,8 @@ class TeacherViewModel(
 
     fun retryGetTeachers() {
         teacherJob?.cancel()
+        _spinner.value = true
+        _teacherVo.value = null
         getTeachers()
     }
 

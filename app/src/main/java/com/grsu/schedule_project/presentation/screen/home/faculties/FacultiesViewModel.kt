@@ -29,8 +29,8 @@ class FacultiesViewModel(
     val spinner: LiveData<Boolean>
         get() = _spinner
 
-    private val _facultyItemViewModelList = MutableLiveData<List<FacultyItemViewModel>>()
-    val facultyItemViewModelList: LiveData<List<FacultyItemViewModel>>
+    private val _facultyItemViewModelList = MutableLiveData<List<FacultyItemViewModel>?>()
+    val facultyItemViewModelList: MutableLiveData<List<FacultyItemViewModel>?>
         get() = _facultyItemViewModelList
 
     init {
@@ -39,6 +39,8 @@ class FacultiesViewModel(
 
     fun retryGetFaculties() {
         facultyJob?.cancel()
+        _spinner.value = true
+        _facultyItemViewModelList.value = null
         getFaculties()
     }
 

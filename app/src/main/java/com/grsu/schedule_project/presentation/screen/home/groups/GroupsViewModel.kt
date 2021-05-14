@@ -36,8 +36,8 @@ class GroupsViewModel(
     val spinner: LiveData<Boolean>
         get() = _spinner
 
-    private val _groupItemViewModelList = MutableLiveData<List<GroupItemViewModel>>()
-    val groupItemViewModelList: LiveData<List<GroupItemViewModel>>
+    private val _groupItemViewModelList = MutableLiveData<List<GroupItemViewModel>?>()
+    val groupItemViewModelList: MutableLiveData<List<GroupItemViewModel>?>
         get() = _groupItemViewModelList
 
     init {
@@ -46,6 +46,8 @@ class GroupsViewModel(
 
     fun retryGetGroups() {
         groupJob?.cancel()
+        _spinner.value = true
+        _groupItemViewModelList.value = null
         getGroups()
     }
 

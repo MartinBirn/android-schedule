@@ -12,6 +12,7 @@ import com.grsu.schedule_project.di.SCHEDULE_CONTAINER
 import com.grsu.schedule_project.presentation.common.BackButtonListener
 import com.grsu.schedule_project.presentation.common.OnGroupClickListener
 import com.grsu.schedule_project.presentation.common.OnTabChanged
+import com.grsu.schedule_project.presentation.common.RecreateActionListener
 import com.grsu.schedule_project.presentation.screen.home.HomeScreens
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -19,7 +20,7 @@ import org.koin.core.qualifier.named
 
 
 class ScheduleContainerFragment : Fragment(R.layout.container_schedule), BackButtonListener,
-    OnGroupClickListener {
+    OnGroupClickListener, RecreateActionListener {
 
     companion object {
         fun getNewInstance() = ScheduleContainerFragment()
@@ -49,6 +50,12 @@ class ScheduleContainerFragment : Fragment(R.layout.container_schedule), BackBut
     override fun onPause() {
         navigatorHolder.removeNavigator()
         super.onPause()
+    }
+
+    override fun recreate() {
+        childFragmentManager.fragments.map {
+            (it as? RecreateActionListener)?.recreate()
+        }
     }
 
     override fun onBackPressed(): Boolean {

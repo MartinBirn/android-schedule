@@ -35,7 +35,6 @@ class SettingsFragment : Fragment(R.layout.fragment_settings), BackButtonListene
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewBinding.toolbar.title = utils.getStringById(R.string.toolbar_settings_title)
         viewBinding.themeItem.description = when (appTheme) {
             APP_THEME_LIGHT_VALUE -> utils.getStringById(R.string.app_theme_light)
             APP_THEME_DARK_VALUE -> utils.getStringById(R.string.app_theme_dark)

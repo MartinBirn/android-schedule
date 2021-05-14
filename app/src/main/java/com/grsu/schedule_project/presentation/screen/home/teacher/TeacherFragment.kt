@@ -8,16 +8,16 @@ import androidx.fragment.app.Fragment
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.grsu.schedule_project.R
-import com.grsu.schedule_project.common.utils.Utils
 import com.grsu.schedule_project.data.model.snackbarhelpers.SNACK_BAR_CAUSE_EMPTY
 import com.grsu.schedule_project.data.model.snackbarhelpers.SNACK_BAR_CAUSE_ERROR
 import com.grsu.schedule_project.databinding.FragmentTeacherBinding
 import com.grsu.schedule_project.presentation.common.BackButtonListener
-import org.koin.android.ext.android.inject
+import com.grsu.schedule_project.presentation.common.RecreateActionListener
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-class TeacherFragment : Fragment(R.layout.fragment_teacher), BackButtonListener {
+class TeacherFragment : Fragment(R.layout.fragment_teacher), BackButtonListener,
+    RecreateActionListener {
 
     companion object {
         private const val TEACHER_ID = "teacher_id"
@@ -33,12 +33,9 @@ class TeacherFragment : Fragment(R.layout.fragment_teacher), BackButtonListener 
         parametersOf(arguments?.getString(TEACHER_ID))
     }
 
-    private val utils: Utils by inject()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).setSupportActionBar(viewBinding.toolbar)
-        viewBinding.toolbar.title = utils.getStringById(R.string.toolbar_teacher_title)
         viewBinding.toolbar.setNavigationOnClickListener {
             teacherViewModel.onBackPressed()
         }
@@ -80,6 +77,10 @@ class TeacherFragment : Fragment(R.layout.fragment_teacher), BackButtonListener 
                 viewBinding.emailValue.text = teacherVo.email
             }
         }
+    }
+
+    override fun recreate() {
+        teacherViewModel.retryGetTeachers()
     }
 
     override fun onBackPressed(): Boolean {

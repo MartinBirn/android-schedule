@@ -10,15 +10,15 @@ import androidx.recyclerview.widget.RecyclerView
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
 import com.grsu.schedule_project.R
-import com.grsu.schedule_project.common.utils.Utils
 import com.grsu.schedule_project.databinding.FragmentFacultiesBinding
 import com.grsu.schedule_project.presentation.common.BackButtonListener
+import com.grsu.schedule_project.presentation.common.RecreateActionListener
 import com.grsu.schedule_project.presentation.common.listadapters.FacultyAdapter
-import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.parameter.parametersOf
 
-class FacultiesFragment : Fragment(R.layout.fragment_faculties), BackButtonListener {
+class FacultiesFragment : Fragment(R.layout.fragment_faculties), BackButtonListener,
+    RecreateActionListener {
 
     companion object {
         private const val DEPARTMENT_ID = "department_id"
@@ -35,12 +35,9 @@ class FacultiesFragment : Fragment(R.layout.fragment_faculties), BackButtonListe
     }
     private val facultyAdapter = FacultyAdapter()
 
-    private val utils: Utils by inject()
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         (activity as AppCompatActivity).setSupportActionBar(viewBinding.toolbar)
-        viewBinding.toolbar.title = utils.getStringById(R.string.toolbar_faculties_title)
         viewBinding.toolbar.setNavigationOnClickListener {
             facultiesViewModel.onBackPressed()
         }
@@ -68,6 +65,10 @@ class FacultiesFragment : Fragment(R.layout.fragment_faculties), BackButtonListe
         facultiesViewModel.facultyItemViewModelList.observe(viewLifecycleOwner) { facultyItemViewModelList ->
             facultyAdapter.submitList(facultyItemViewModelList)
         }
+    }
+
+    override fun recreate() {
+        facultiesViewModel.retryGetFaculties()
     }
 
     override fun onBackPressed(): Boolean {

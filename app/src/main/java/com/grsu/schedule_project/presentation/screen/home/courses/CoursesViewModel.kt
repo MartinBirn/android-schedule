@@ -33,11 +33,18 @@ class CoursesViewModel(
     val spinner: LiveData<Boolean>
         get() = _spinner
 
-    private val _courseItemViewModelList = MutableLiveData<List<CourseItemViewModel>>()
-    val courseItemViewModelList: LiveData<List<CourseItemViewModel>>
+    private val _courseItemViewModelList = MutableLiveData<List<CourseItemViewModel>?>()
+    val courseItemViewModelList: MutableLiveData<List<CourseItemViewModel>?>
         get() = _courseItemViewModelList
 
     init {
+        getCourses()
+    }
+
+    fun retryGetCourses() {
+        courseJob?.cancel()
+        _spinner.value = true
+        _courseItemViewModelList.value = null
         getCourses()
     }
 

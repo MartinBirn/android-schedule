@@ -21,6 +21,7 @@ import com.grsu.schedule_project.data.model.snackbarhelpers.SNACK_BAR_CAUSE_EMPT
 import com.grsu.schedule_project.data.model.snackbarhelpers.SNACK_BAR_CAUSE_ERROR
 import com.grsu.schedule_project.databinding.FragmentScheduleBinding
 import com.grsu.schedule_project.presentation.common.BackButtonListener
+import com.grsu.schedule_project.presentation.common.RecreateActionListener
 import com.grsu.schedule_project.presentation.common.listadapters.ScheduleAdapter
 import org.koin.android.ext.android.inject
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -29,7 +30,8 @@ import org.koin.core.parameter.parametersOf
 private const val OFFSET_DAY_BEFORE = -1
 private const val OFFSET_WEEK_LATER = 5
 
-class ScheduleFragment : Fragment(R.layout.fragment_schedule), BackButtonListener {
+class ScheduleFragment : Fragment(R.layout.fragment_schedule), BackButtonListener,
+    RecreateActionListener {
 
     companion object {
         private const val GROUP_ID = "group_id"
@@ -153,6 +155,10 @@ class ScheduleFragment : Fragment(R.layout.fragment_schedule), BackButtonListene
         scheduleViewModel.scheduleItemViewModelList.observe(viewLifecycleOwner) { facultyItemViewModelList ->
             scheduleAdapter.submitList(facultyItemViewModelList)
         }
+    }
+
+    override fun recreate() {
+        scheduleViewModel.retryGetSchedule()
     }
 
     override fun onBackPressed(): Boolean {
