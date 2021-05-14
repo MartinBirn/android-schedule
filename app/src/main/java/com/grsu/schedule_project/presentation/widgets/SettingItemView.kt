@@ -21,7 +21,7 @@ class SettingItemView @JvmOverloads constructor(
             binding.title.text = value
         }
 
-    private var description: String? = null
+    var description: String? = null
         set(value) {
             field = value
             binding.description.text = value

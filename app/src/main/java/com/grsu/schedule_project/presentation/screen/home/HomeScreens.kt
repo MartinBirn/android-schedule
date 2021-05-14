@@ -13,6 +13,7 @@ import com.grsu.schedule_project.presentation.screen.home.schedulecontainer.Sche
 import com.grsu.schedule_project.presentation.screen.home.settings.SettingsFragment
 import com.grsu.schedule_project.presentation.screen.home.settingscontainer.SettingsContainerFragment
 import com.grsu.schedule_project.presentation.screen.home.teacher.TeacherFragment
+import com.grsu.schedule_project.presentation.screen.home.themes.ThemesFragment
 
 object HomeScreens {
 
@@ -44,4 +45,6 @@ object HomeScreens {
     fun settingsScreen() = FragmentScreen { SettingsFragment.getNewInstance() }
 
     fun languagesScreen() = FragmentScreen { LanguagesFragment.getNewInstance() }
+
+    fun themesScreen() = FragmentScreen { ThemesFragment.getNewInstance() }
 }

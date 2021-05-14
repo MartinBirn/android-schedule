@@ -35,6 +35,7 @@ class ScheduleApplication : Application() {
                 settingsContainerModule,
                 settingsModule,
                 languagesModule,
+                themesModule,
                 networkModule,
                 databaseModule,
                 teacherRepositoryModule,

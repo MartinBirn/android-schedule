@@ -2,6 +2,9 @@
 <resources>
     <string name="app_language">Русский</string>
 
+    <string name="app_theme_light">Светлая</string>
+    <string name="app_theme_dark">Тёмная</string>
+
     <string name="error_null_body">Пустое тело ответа</string>
 
     <string name="action_retry">Повторить</string>
@@ -25,12 +28,14 @@
     <string name="toolbar_bookmarks_title">Закладки</string>
     <string name="toolbar_settings_title">Настройки</string>
     <string name="toolbar_languages_title">Языки</string>
+    <string name="toolbar_themes_title">Темы</string>
 
     <string name="toolbar_bookmark_action">Добавить в закладки</string>
     <string name="toolbar_date_range_action">Выбрать диапазон дат</string>
     <string name="toolbar_refresh_action">Обновить</string>
 
     <string name="setting_language_title">Язык</string>
+    <string name="setting_theme_title">Тема</string>
 
     <string name="course_first_title">1 курс</string>
     <string name="course_second_title">2 курс</string>

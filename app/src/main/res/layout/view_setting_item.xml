@@ -8,6 +8,7 @@
 
     <ImageView
         android:id="@+id/icon"
+        style="@style/ListItemIconStyle"
         android:layout_width="@dimen/spacing_3x"
         android:layout_height="@dimen/spacing_3x"
         android:layout_marginStart="@dimen/spacing_2x"

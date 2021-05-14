@@ -5,4 +5,88 @@
         <attr name="description" format="string" />
         <attr name="iconRes" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="BottomNavView">
+        <attr name="bottomNavBackground" format="color" />
+        <attr name="bottomNavItemIconTintUnselectedColor" format="color" />
+        <attr name="bottomNavItemIconTint" format="color" />
+        <attr name="bottomNavItemTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="AppToolbar">
+        <attr name="appToolbarBackground" format="color" />
+        <attr name="appToolbarThemeReference" format="reference" />
+        <attr name="appToolbarTheme" format="color" />
+        <attr name="appToolbarTitleTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="SelectableItem">
+        <attr name="selectableItemBackgroundColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ListItemIcon">
+        <attr name="listItemTint" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ListItemTitle">
+        <attr name="listItemTitleTextSize" format="dimension" />
+        <attr name="listItemTitleTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ListItemCaptionPrimary">
+        <attr name="listItemCaptionPrimaryTextSize" format="dimension" />
+        <attr name="listItemCaptionPrimaryTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ListItemCaptionBlack">
+        <attr name="listItemCaptionBlackTextSize" format="dimension" />
+        <attr name="listItemCaptionBlackTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ListItemCaptionGray">
+        <attr name="listItemCaptionGrayTextSize" format="dimension" />
+        <attr name="listItemCaptionGrayTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="DayDate">
+        <attr name="dayDateTextSize" format="dimension" />
+        <attr name="dayDateTextColor" format="color" />
+        <attr name="dayDateBackgroundColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LessonTitle">
+        <attr name="lessonTitleTextSize" format="dimension" />
+        <attr name="lessonTitleTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="LargeGrayText">
+        <attr name="largeGrayTextSize" format="dimension" />
+        <attr name="largeGrayTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="NormalGrayText">
+        <attr name="normalGrayTextSize" format="dimension" />
+        <attr name="normalGrayTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="SmallGrayText">
+        <attr name="smallGrayTextSize" format="dimension" />
+        <attr name="smallGrayTextColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="ClickableLink">
+        <attr name="clickableLinkTextSize" format="dimension" />
+        <attr name="clickableLinkTextColor" format="color" />
+        <attr name="clickableLinkTextColorLink" format="color" />
+        <attr name="clickableLinkTextColorHighlight" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="TextLink">
+        <attr name="textPressedLinkColor" format="color" />
+        <attr name="textLinkColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="Divider">
+        <attr name="dividerBackground" format="color" />
+    </declare-styleable>
 </resources>

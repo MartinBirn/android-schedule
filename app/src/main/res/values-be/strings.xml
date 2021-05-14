@@ -2,6 +2,9 @@
 <resources>
     <string name="app_language">Беларуская</string>
 
+    <string name="app_theme_light">Светлая</string>
+    <string name="app_theme_dark">Цёмная</string>
+
     <string name="error_null_body">Пустое цела адказу</string>
 
     <string name="action_back">Назад</string>
@@ -25,12 +28,14 @@
     <string name="toolbar_settings_title">Налады</string>
     <string name="toolbar_bookmarks_title">Закладкі</string>
     <string name="toolbar_languages_title">Мовы</string>
+    <string name="toolbar_themes_title">Тэмы</string>
 
     <string name="toolbar_bookmark_action">Дадаць у закладкі</string>
     <string name="toolbar_date_range_action">Выберыце дыяпазон дат</string>
     <string name="toolbar_refresh_action">Абнавіць</string>
 
     <string name="setting_language_title">Мова</string>
+    <string name="setting_theme_title">Тэма</string>
 
     <string name="course_first_title">1 курс</string>
     <string name="course_second_title">2 курс</string>
