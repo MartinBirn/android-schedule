@@ -1,24 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="primary_color">#3772c7</color>
-    <color name="primary_dark_color">#004695</color>
+    <color name="primary_dark_color">@color/black</color>
     <color name="accent_color">#719ff9</color>
+
+    <color name="dark_primary_color">#96c8f4</color>
+    <color name="dark_primary_dark_color">#6497c1</color>
+    <color name="dark_accent_color">#c9fbff</color>
 
     <color name="toolbar_text_color">@color/primary_color</color>
     <color name="toolbar_control_normal_color">@color/primary_color</color>
     <color name="toolbar_background_color">@color/white</color>
 
+    <color name="dark_toolbar_text_color">@color/dark_primary_color</color>
+    <color name="dark_toolbar_control_normal_color">@color/dark_primary_color</color>
+    <color name="dark_toolbar_background_color">@color/dark_gray_91</color>
+
     <color name="bottom_nav_background_color">@color/white</color>
+    <color name="dark_bottom_nav_background_color">@color/dark_gray_91</color>
+
+    <color name="selectable_item_background_color">#FFE0E0E0</color>
+    <color name="dark_selectable_item_background_color">#343434</color>
 
     <color name="divider_color">#FFE0E0E0</color>
-    <color name="day_date_background_color">#F4F4F4</color>
+    <color name="dark_divider_color">#343434</color>
 
-    <color name="teacher_text_link_color">@color/primary_color</color>
-    <color name="teacher_text_pressed_link_color">#803772c7</color>
-    <color name="teacher_highlight_text_color">#00FFFFFF</color>
+    <color name="day_date_background_color">#F4F4F4</color>
+    <color name="dark_day_date_background_color">#191919</color>
+
+    <color name="text_link_color">@color/primary_color</color>
+    <color name="text_pressed_link_color">#803772c7</color>
+    <color name="highlight_text_link_color">#00FFFFFF</color>
+
+    <color name="dark_text_link_color">@color/dark_primary_color</color>
+    <color name="dark_text_pressed_link_color">#8096c8f4</color>
+    <color name="dark_highlight_text_link_color">#00FFFFFF</color>
 
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="gray">#808080</color>
-    <color name="dark_gray">#606060</color>
+    <color name="white_87">#DEDEDE</color>
+    <color name="white_60">#999999</color>
+    <color name="gray">#757575</color>
+    <color name="shadowy_gray">#606060</color>
+    <color name="dark_gray">#121212</color>
+    <color name="dark_gray_91">#272727</color>
+    <color name="dark_gray_41">#9E9E9E</color>
 </resources>

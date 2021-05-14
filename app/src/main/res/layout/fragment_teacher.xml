@@ -27,12 +27,6 @@
         android:indeterminate="true"
         app:layout_constraintTop_toBottomOf="@+id/appBarLayout" />
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/placeSnackBar"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintTop_toBottomOf="@id/progressBar" />
-
     <androidx.constraintlayout.widget.Group
         android:id="@+id/elementsGroup"
         android:layout_width="wrap_content"
@@ -41,6 +35,7 @@
         emailTitle,emailValue, emailIcon" />
 
     <ImageView
+        style="@style/ListItemIconStyle"
         android:id="@+id/teacherIcon"
         android:layout_width="@dimen/spacing_5x"
         android:layout_height="@dimen/spacing_5x"
@@ -128,5 +123,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/horizontalDivider"
         app:tint="@color/primary_color" />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/placeSnackBar"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

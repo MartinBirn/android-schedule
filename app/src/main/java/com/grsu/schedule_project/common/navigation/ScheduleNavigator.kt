@@ -7,7 +7,6 @@ import androidx.fragment.app.commitNow
 import com.github.terrakok.cicerone.Command
 import com.github.terrakok.cicerone.androidx.AppNavigator
 import com.grsu.schedule_project.R
-import com.grsu.schedule_project.common.EXTRA_KEY
 import com.grsu.schedule_project.common.navigation.commands.*
 import com.grsu.schedule_project.presentation.common.BackButtonListener
 import com.grsu.schedule_project.presentation.common.OnGroupClickListener
@@ -104,7 +103,9 @@ class ScheduleNavigator(
         activity.finish()
         activity.overridePendingTransition(0, 0)
         activity.startActivity(
-            activity.intent.apply { putExtra(EXTRA_KEY, command.extra) }
+            activity.intent.apply {
+                command.extraPair.map { putExtra(it.first, it.second) }
+            }
         )
         activity.overridePendingTransition(0, 0)
     }

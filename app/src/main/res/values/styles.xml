@@ -1,10 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <style name="AppThemeLight" parent="Theme.MaterialComponents.NoActionBar">
         <item name="colorPrimary">@color/primary_color</item>
         <item name="colorPrimaryDark">@color/primary_dark_color</item>
         <item name="colorAccent">@color/accent_color</item>
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryDark</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?colorPrimaryDark</item>
         <item name="android:windowBackground">@color/white</item>
 
         <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
@@ -13,63 +13,206 @@
         </item>
         <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar
         </item>
+
+        <item name="bottomNavBackground">@color/bottom_nav_background_color</item>
+        <item name="bottomNavItemIconTintUnselectedColor">@color/gray</item>
+        <item name="bottomNavItemIconTint">@color/bottom_nav_item_color_selector</item>
+        <item name="bottomNavItemTextColor">@color/bottom_nav_item_color_selector</item>
+
+        <item name="appToolbarBackground">@color/toolbar_background_color</item>
+        <item name="appToolbarThemeReference">@style/AppToolbarTheme</item>
+        <item name="appToolbarTheme">@color/toolbar_control_normal_color</item>
+        <item name="appToolbarTitleTextColor">@color/toolbar_text_color</item>
+
+        <item name="selectableItemBackgroundColor">@color/selectable_item_background_color</item>
+
+        <item name="android:listDivider">@drawable/line_divider</item>
+
+        <item name="listItemTint">@color/gray</item>
+
+        <item name="listItemTitleTextSize">@dimen/large_text_size</item>
+        <item name="listItemTitleTextColor">@color/black</item>
+
+        <item name="listItemCaptionPrimaryTextSize">@dimen/normal_text_size</item>
+        <item name="listItemCaptionPrimaryTextColor">@color/primary_color</item>
+
+        <item name="listItemCaptionBlackTextSize">@dimen/normal_text_size</item>
+        <item name="listItemCaptionBlackTextColor">@color/black</item>
+
+        <item name="listItemCaptionGrayTextSize">@dimen/normal_text_size</item>
+        <item name="listItemCaptionGrayTextColor">@color/shadowy_gray</item>
+
+        <item name="dayDateTextSize">@dimen/normal_text_size</item>
+        <item name="dayDateTextColor">@color/gray</item>
+        <item name="dayDateBackgroundColor">@color/day_date_background_color</item>
+
+        <item name="largeGrayTextSize">@dimen/large_text_size</item>
+        <item name="largeGrayTextColor">@color/gray</item>
+
+        <item name="normalGrayTextSize">@dimen/normal_text_size</item>
+        <item name="normalGrayTextColor">@color/gray</item>
+
+        <item name="smallGrayTextSize">@dimen/small_text_size</item>
+        <item name="smallGrayTextColor">@color/gray</item>
+
+        <item name="lessonTitleTextSize">@dimen/large_text_size</item>
+        <item name="lessonTitleTextColor">@color/black</item>
+
+        <item name="textLinkColor">@color/text_link_color</item>
+        <item name="textPressedLinkColor">@color/text_pressed_link_color</item>
+
+        <item name="clickableLinkTextSize">@dimen/normal_text_size</item>
+        <item name="clickableLinkTextColor">@color/black</item>
+        <item name="clickableLinkTextColorLink">@color/link_selector</item>
+        <item name="clickableLinkTextColorHighlight">@color/highlight_text_link_color</item>
+
+        <item name="dividerBackground">@color/divider_color</item>
+    </style>
+
+    <style name="AppThemeDark" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="colorPrimary">@color/dark_primary_color</item>
+        <item name="colorPrimaryDark">@color/dark_primary_dark_color</item>
+        <item name="colorAccent">@color/dark_accent_color</item>
+        <item name="android:statusBarColor" tools:targetApi="l">?colorPrimaryDark</item>
+        <item name="android:windowBackground">@color/dark_gray</item>
+
+        <item name="materialCalendarStyle">@style/Widget.MaterialComponents.MaterialCalendar</item>
+        <item name="materialCalendarFullscreenTheme">
+            @style/ThemeOverlay.MaterialComponents.MaterialCalendar.Fullscreen
+        </item>
+        <item name="materialCalendarTheme">@style/ThemeOverlay.MaterialComponents.MaterialCalendar
+        </item>
+
+        <item name="bottomNavBackground">@color/dark_bottom_nav_background_color</item>
+        <item name="bottomNavItemIconTintUnselectedColor">@color/dark_gray_41</item>
+        <item name="bottomNavItemIconTint">@color/bottom_nav_item_color_selector</item>
+        <item name="bottomNavItemTextColor">@color/bottom_nav_item_color_selector</item>
+
+        <item name="appToolbarBackground">@color/dark_toolbar_background_color</item>
+        <item name="appToolbarThemeReference">@style/AppToolbarTheme</item>
+        <item name="appToolbarTheme">@color/dark_toolbar_control_normal_color</item>
+        <item name="appToolbarTitleTextColor">@color/dark_toolbar_text_color</item>
+
+        <item name="selectableItemBackgroundColor">@color/dark_selectable_item_background_color
+        </item>
+
+        <item name="android:listDivider">@drawable/line_divider</item>
+
+        <item name="listItemTint">@color/white_60</item>
+
+        <item name="listItemTitleTextSize">@dimen/large_text_size</item>
+        <item name="listItemTitleTextColor">@color/white_87</item>
+
+        <item name="listItemCaptionPrimaryTextSize">@dimen/normal_text_size</item>
+        <item name="listItemCaptionPrimaryTextColor">@color/dark_primary_color</item>
+
+        <item name="listItemCaptionBlackTextSize">@dimen/normal_text_size</item>
+        <item name="listItemCaptionBlackTextColor">@color/white_87</item>
+
+        <item name="listItemCaptionGrayTextSize">@dimen/normal_text_size</item>
+        <item name="listItemCaptionGrayTextColor">@color/shadowy_gray</item>
+
+        <item name="dayDateTextSize">@dimen/normal_text_size</item>
+        <item name="dayDateTextColor">@color/white_60</item>
+        <item name="dayDateBackgroundColor">@color/dark_day_date_background_color</item>
+
+        <item name="largeGrayTextSize">@dimen/large_text_size</item>
+        <item name="largeGrayTextColor">@color/white_60</item>
+
+        <item name="normalGrayTextSize">@dimen/normal_text_size</item>
+        <item name="normalGrayTextColor">@color/white_60</item>
+
+        <item name="smallGrayTextSize">@dimen/small_text_size</item>
+        <item name="smallGrayTextColor">@color/white_60</item>
+
+        <item name="lessonTitleTextSize">@dimen/large_text_size</item>
+        <item name="lessonTitleTextColor">@color/white_87</item>
+
+        <item name="textLinkColor">@color/dark_text_link_color</item>
+        <item name="textPressedLinkColor">@color/dark_text_pressed_link_color</item>
+
+        <item name="clickableLinkTextSize">@dimen/normal_text_size</item>
+        <item name="clickableLinkTextColor">@color/white_87</item>
+        <item name="clickableLinkTextColorLink">@color/link_selector</item>
+        <item name="clickableLinkTextColorHighlight">@color/dark_highlight_text_link_color</item>
+
+        <item name="dividerBackground">@color/dark_divider_color</item>
     </style>
 
     <style name="BottomNavViewStyle">
-        <item name="android:background">@color/bottom_nav_background_color</item>
-        <item name="itemIconTint">@color/bottom_nav_item_color_selector</item>
-        <item name="itemTextColor">@color/bottom_nav_item_color_selector</item>
+        <item name="android:background">?bottomNavBackground</item>
+        <item name="itemIconTint">?bottomNavItemIconTint</item>
+        <item name="itemTextColor">?bottomNavItemTextColor</item>
     </style>
 
     <style name="AppToolbarStyle">
-        <item name="android:background">@color/toolbar_background_color</item>
-        <item name="android:theme">@style/AppToolbarTheme</item>
-        <item name="titleTextColor">@color/toolbar_text_color</item>
+        <item name="android:background">?appToolbarBackground</item>
+        <item name="android:theme">?appToolbarThemeReference</item>
+        <item name="titleTextColor">?appToolbarTitleTextColor</item>
     </style>
 
     <style name="AppToolbarTheme">
-        <item name="colorControlNormal">@color/toolbar_control_normal_color</item>
+        <item name="colorControlNormal">?appToolbarTheme</item>
+    </style>
+
+    <style name="ListItemIconStyle">
+        <item name="tint">?listItemTint</item>
     </style>
 
     <style name="ListItemTitleStyle">
-        <item name="android:textSize">@dimen/large_text_size</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">?listItemTitleTextSize</item>
+        <item name="android:textColor">?listItemTitleTextColor</item>
     </style>
 
     <style name="ListItemCaptionPrimaryStyle">
-        <item name="android:textSize">@dimen/normal_text_size</item>
-        <item name="android:textColor">@color/primary_color</item>
+        <item name="android:textSize">?listItemCaptionPrimaryTextSize</item>
+        <item name="android:textColor">?listItemCaptionPrimaryTextColor</item>
     </style>
 
     <style name="ListItemCaptionBlackStyle">
-        <item name="android:textSize">@dimen/normal_text_size</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">?listItemCaptionBlackTextSize</item>
+        <item name="android:textColor">?listItemCaptionBlackTextColor</item>
     </style>
 
     <style name="ListItemCaptionGrayStyle">
-        <item name="android:textSize">@dimen/normal_text_size</item>
-        <item name="android:textColor">@color/dark_gray</item>
+        <item name="android:textSize">?listItemCaptionGrayTextSize</item>
+        <item name="android:textColor">?listItemCaptionGrayTextColor</item>
     </style>
 
     <style name="DayDateStyle">
-        <item name="android:textSize">@dimen/normal_text_size</item>
-        <item name="android:textColor">@color/gray</item>
+        <item name="android:textSize">?dayDateTextSize</item>
+        <item name="android:textColor">?dayDateTextColor</item>
     </style>
 
     <style name="LessonTitleStyle">
-        <item name="android:textSize">@dimen/large_text_size</item>
-        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">?lessonTitleTextSize</item>
+        <item name="android:textColor">?lessonTitleTextColor</item>
+    </style>
+
+    <style name="LargeGrayTextStyle">
+        <item name="android:textSize">?largeGrayTextSize</item>
+        <item name="android:textColor">?largeGrayTextColor</item>
+    </style>
+
+    <style name="NormalGrayTextStyle">
+        <item name="android:textSize">?normalGrayTextSize</item>
+        <item name="android:textColor">?normalGrayTextColor</item>
+    </style>
+
+    <style name="SmallGrayTextStyle">
+        <item name="android:textSize">?smallGrayTextSize</item>
+        <item name="android:textColor">?smallGrayTextColor</item>
     </style>
 
     <style name="ClickableLinkStyle">
-        <item name="android:textSize">@dimen/normal_text_size</item>
-        <item name="android:textColor">@color/black</item>
-        <item name="android:textColorLink">@color/link_selector</item>
-        <item name="android:textColorHighlight">@color/teacher_highlight_text_color</item>
+        <item name="android:textSize">?clickableLinkTextSize</item>
+        <item name="android:textColor">?clickableLinkTextColor</item>
+        <item name="android:textColorLink">?clickableLinkTextColorLink</item>
+        <item name="android:textColorHighlight">?clickableLinkTextColorHighlight</item>
     </style>
 
     <style name="Divider">
-        <item name="android:background">@color/divider_color</item>
+        <item name="android:background">?dividerBackground</item>
     </style>
 
     <style name="Divider.Horizontal" parent="Divider">

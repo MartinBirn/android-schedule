@@ -5,6 +5,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.grsu.schedule_project.R
 import com.grsu.schedule_project.common.APP_LANGUAGE_KEY
+import com.grsu.schedule_project.common.TAB_ID_KEY
 import com.grsu.schedule_project.common.navigation.ScheduleRouter
 import com.grsu.schedule_project.common.preferences.util.string
 import com.grsu.schedule_project.data.source.department.DepartmentRepository
@@ -28,7 +29,7 @@ class LanguagesViewModel(
             facultyRepository.deleteFaculties()
         }
 
-        router.restartActivity(R.id.settingsPage.toString())
+        router.restartActivity(TAB_ID_KEY to R.id.settingsPage.toString())
     }
 
     fun onBackPressed() {

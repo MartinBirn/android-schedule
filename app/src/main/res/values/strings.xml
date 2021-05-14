@@ -6,6 +6,9 @@
     <string name="app_language_ru" translatable="false">Русский</string>
     <string name="app_language_be" translatable="false">Беларуская</string>
 
+    <string name="app_theme_light">Light</string>
+    <string name="app_theme_dark">Dark</string>
+
     <string name="error_null_body">Body is null</string>
 
     <string name="action_retry">Retry</string>
@@ -29,6 +32,7 @@
     <string name="toolbar_bookmarks_title">Bookmarks</string>
     <string name="toolbar_settings_title">Settings</string>
     <string name="toolbar_languages_title">Languages</string>
+    <string name="toolbar_themes_title">Themes</string>
 
     <string name="toolbar_bookmark_action">Add to bookmarks</string>
     <string name="toolbar_date_range_action">Pick a date range</string>
@@ -37,6 +41,7 @@
     <string name="teacher_email_title" translatable="false">Email</string>
 
     <string name="setting_language_title">Language</string>
+    <string name="setting_theme_title">Theme</string>
 
     <string name="course_first_title">1 year</string>
     <string name="course_second_title">2 year</string>
